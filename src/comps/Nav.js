@@ -24,7 +24,7 @@ function Nav(params) {
 
   return (
     <>
-      {window.innerWidth > 768 ? (
+      {window.innerWidth < 768 ? (
         
         <div className=" w-full h-[37px] bg-[#28A745] "></div>
       ) : (
