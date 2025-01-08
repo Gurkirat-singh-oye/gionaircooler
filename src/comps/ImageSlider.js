@@ -54,10 +54,14 @@ const ImageSlider = (props) => {
     right1: { x: "60%", scale: 0.85, zIndex: 3 },
   };
   return (
-    <div className="flex flex-col gap-3 ">
+    <div className=" absolute w-screen flex flex-col gap-3 overflow-clip ">
       <div>
-        <div className="flex items-center justify-center flex-col h-[50vh] ">
-          <div className="absolute  flex justify-between w-[80%] h-[80%] z-[4] ">
+        <div className={` flex items-center justify-center flex-col ${ props?.mobView ? ` h-[40vh] ` : ` h-[50vh] ` } `}>
+          <div
+            className={` absolute flex justify-between ${
+              props?.mobView ? "w-[125%]" : "w-[80%]"
+            } h-[80%] z-[4] `}
+          >
             <div className="w-[50%] h-full bg-gradient-to-r from-white via-40% to-transparent " />
             <div className="w-[50%] h-full bg-gradient-to-r to-white via-40% from-transparent " />
           </div>
@@ -66,38 +70,50 @@ const ImageSlider = (props) => {
               key={index}
               // src={image}
               alt={image}
-              className="flex justify-center rounded-[18px] shadow-lg shadow-neutral-500 overflow-clip"
+              className=" flex justify-center rounded-[18px] shadow-lg shadow-neutral-500 overflow-clip "
               initial="center"
               animate={positions[positionIndexes[index]]}
               variants={imageVariants}
               transition={{ duration: 0.5 }}
-              style={{ width: "25%", height: "fit", position: "absolute" }}
+              style={{
+                width: props?.mobView ? "42%" : "25%",
+                height: "fit",
+                position: "absolute",
+              }}
             >
               <img className="w-full object-cover" src={image} />
             </motion.div>
           ))}
         </div>
       </div>
-      <div className=" my-4 flex flex-row justify-center gap-4">
+      <div
+        className={` ${
+          props?.mobView ? ` -mt-10 ` : `my-4`
+        } flex flex-row justify-center gap-4 `}
+      >
         <img
           src={arrow}
           className=" w-5 h-5 cursor-pointer rotate-180"
           onClick={handleBack}
         />
-        <div className=" flex flex-row gap-2 items-center " >
-          {
-            forDot?.map((each, ind) => {
-              return <>
-                {
-                  each == 0 ? 
-                  <div className=" w-[10px] h-[10px] rounded-full bg-orange-400 " /> :
+        <div className=" flex flex-row gap-2 items-center ">
+          {forDot?.map((each, ind) => {
+            return (
+              <>
+                {each == 0 ? (
+                  <div className=" w-[10px] h-[10px] rounded-full bg-orange-400 " />
+                ) : (
                   <div className=" w-[10px] h-[10px] rounded-full bg-neutral-300 " />
-                }
+                )}
               </>
-            })
-          }
+            );
+          })}
         </div>
-        <img src={arrow} className=" w-5 h-5 cursor-pointer" onClick={handleNext} />
+        <img
+          src={arrow}
+          className=" w-5 h-5 cursor-pointer"
+          onClick={handleNext}
+        />
       </div>
     </div>
   );

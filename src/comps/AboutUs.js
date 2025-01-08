@@ -19,22 +19,44 @@ import ContactUs from "./ContactUs";
 
 function ContentAboutUs(params) {
   return (
-    <div className=" w-[1000px] h-[550px] flex flex-row gap-16 ">
-      <div className=" min-w-[40%] hover:scale-105 transition-all duration-500 rounded-lg shadow-custom-shadow overflow-clip ">
+    <div
+      className={` mt-[300px] ${
+        window?.innerWidth ? ` w-[300px] ` : ` w-[1000px] h-[550px] `
+      } flex ${window?.innerWidth < 768 ? ` flex-col gap-8 ` : ` flex-row gap-16 `} `}
+    >
+      <div
+        className={` ${
+          window?.innerWidth < 768 ? ` h-[400px] ` : `  `
+        } min-w-[40%] hover:scale-105 transition-all duration-500 rounded-lg shadow-custom-shadow overflow-clip `}
+      >
         <img
           src={img1}
           className=" h-full object-cover hover:scale-105 transition-all duration-500 cursor-pointer "
         />
       </div>
-      <div className=" flex flex-col gap-4 items-start ">
-        <div className=" flex flex-row items-center text-[#007BFF] font-semibold ">
-          <div className=" mx-1 h-[2px] w-[60px] bg-[#007BFF] " />
+      <div className={` flex flex-col ${ window?.innerWidth ? `  ` : `  ` } items-start `}>
+        <div
+          className={` flex flex-row items-center text-[#007BFF] font-semibold ${
+            window?.innerWidth < 768 ? ` text-xs ` : ` text-base `
+          } `}
+        >
+          <div
+            className={` mx-1  ${
+              window?.innerWidth < 768
+                ? ` h-[1px] w-[30px] `
+                : ` h-[2px] w-[60px] `
+            } bg-[#007BFF] `}
+          />
           ABOUT GIONCOOLER
         </div>
-        <div className=" text-left text-5xl text-[#6C757D] font-bold font-[Newsreader] ">
+        <div
+          className={` text-left ${
+            window?.innerWidth < 768 ? `text-[28px]` : `text-5xl`
+          } text-[#6C757D] font-bold font-[Newsreader] `}
+        >
           Innovation Empowered: Transforming Everyday Living!
         </div>
-        <div className=" text-[#495057] text-start ">
+        <div className={` text-[#495057] text-start ${ window?.innerWidth < 768 ? ` text-xs ` : ` text-base ` } `}>
           At Gion, we’ve been transforming everyday living since 2010 with
           smart, reliable, and user-friendly electrical products. From air
           coolers and room heaters to water geysers, our rigorously tested range
@@ -54,7 +76,7 @@ function ContentAboutUs(params) {
             </div>
           </div>
         </div>
-        <div className=" text-[#495057] text-start ">
+        <div className={` text-[#495057] text-start ${ window?.innerWidth < 768 ? ` text-xs ` : ` text-base ` } `}>
           Driven by cutting-edge engineering and a passion for excellence, we
           create products that blend style, functionality, and durability.
           Thanks to the trust of our customers and the dedication of our skilled
@@ -154,7 +176,9 @@ function AboutUs(params) {
       <ContentAboutUssection2 />
       {/**---------------------------------------------------------------------------- */}
       <div className=" relative px-8 w-full h-[70vh] flex flex-col gap-16 items-center overflow-clip ">
-        <div className=" mt-52 text-[#FFFFFF] text-9xl [text-shadow:_-3px_3px_3.5px_rgb(0_0_0_/_50%)] ">OUR VISION</div>
+        <div className=" mt-52 text-[#FFFFFF] text-9xl [text-shadow:_-3px_3px_3.5px_rgb(0_0_0_/_50%)] ">
+          OUR VISION
+        </div>
         <div className=" text-teal-200 text-5xl ">
           Our Vision is to be India's No.1 Brand and to Take this Brand to Every
           Household in India and Build Customer Satisfaction.
