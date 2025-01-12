@@ -54,7 +54,7 @@ const ImageSlider = (props) => {
     right1: { x: "60%", scale: 0.85, zIndex: 3 },
   };
   return (
-    <div className=" absolute w-screen flex flex-col gap-3 overflow-clip ">
+    <div className=" absolute w-screen lg:w-full flex flex-col gap-3 overflow-clip ">
       <div>
         <div className={` flex items-center justify-center flex-col ${ props?.mobView ? ` h-[40vh] ` : ` h-[50vh] ` } `}>
           <div

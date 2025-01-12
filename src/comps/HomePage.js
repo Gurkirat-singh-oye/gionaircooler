@@ -39,7 +39,7 @@ function Content(params) {
         </Link> */}
       </div>
       <div className=" absolute right-0 w-[65vw] ">
-        <ImageSlider />
+        <ImageSlider mobView={false} />
       </div>
     </div>
   );
@@ -47,7 +47,7 @@ function Content(params) {
 
 function ContentMobView(params) {
   return (
-    <div className=" w-screen ">
+    <div className=" mb-72 w-screen ">
       <div className=" pt-6 flex flex-col items-center text-nowrap gap-4 ">
         <div className=" text-5xl font-bold font-[Newsreader] text-gion-blue [text-shadow:_-2px_2px_4px_rgb(0_0_0_/_50%)] ">
           Stay Cool
@@ -69,7 +69,7 @@ function ContentMobView(params) {
 function HomePage(params) {
   return (
     <div className=" w-screen h-full flex flex-col gap-20 items-center overflow-clip ">
-      {window?.innerWidth < 768 ? (
+      {window?.innerWidth < 1024 ? (
         <ContentMobView />
       ) : (
         <div className=" mt-10 h-[60vh] ">
@@ -77,15 +77,15 @@ function HomePage(params) {
         </div>
       )}
       {/**--------------------------------------------------------------------------- */}
-      {false && (
+      {true && (
         <div
           id="collections_slide"
           className=" w-[60vw] h-[500px] flex flex-col justify-between "
         >
           <div className="  flex flex-row justify-between ">
-            <div className=" w-[30%] flex flex-col text-start ">
-              <div className=" flex flex-row items-center text-gion-blue ">
-                <div className=" mx-1 w-[80px] h-[2px] bg-[#0098DA] " />
+            <div className=" w-full lg:w-[30%] flex flex-col text-start ">
+              <div className=" flex flex-row items-center text-xs lg:text-base text-nowrap text-gion-blue ">
+                <div className=" mx-1 w-[55px] lg:w-[80px] h-[2px] bg-[#0098DA] " />
                 OUR COLLECTION
               </div>
               <div
@@ -94,65 +94,77 @@ function HomePage(params) {
                 OUR SUPERCOOL PRODUCTS!
               </div>
             </div>
-            <div className=" h-[220px] rounded-3xl  overflow-clip ">
+            <div className=" h-[220px] rounded-3xl hiddem lg:block overflow-clip ">
               <img src={colectionImg} className=" -mt-36 object-cover " />
             </div>
           </div>
-          <div className=" my-3 h-[37%] flex flex-row justify-between ">
-            <div className=" w-[22%] rounded-xl overflow-clip ">
-              <img src={collectImg1} />
+          {true && (
+            /** change this to not absolute position */
+            <div className=" w-screen lg:w-full my-3 -ml-16 lg:ml-0 overflow-x-scroll lg:overflow-hidden ">
+              <div
+                className={` ${
+                  window?.innerWidth < 1024 ? ` w-[1000px] ` : `  `
+                } h-full flex flex-row gap-16  `}
+              >
+                <div className=" w-80 lg:w-[22%] rounded-xl overflow-clip ">
+                  <img src={collectImg1} className=" h-full object-cover " />
+                </div>
+                <div className=" w-60 lg:w-[22%] rounded-xl overflow-clip ">
+                  <img src={collectImg2} className=" h-full object-cover " />
+                </div>
+                <div className=" w-60 lg:w-[22%] rounded-xl overflow-clip ">
+                  <img src={collectImg1} className=" h-full object-cover " />
+                </div>
+                <div className=" w-60 lg:w-[22%] rounded-xl overflow-clip ">
+                  <img src={collectImg2} className=" h-full object-cover " />
+                </div>
+              </div>
             </div>
-            <div className=" w-[22%] rounded-xl overflow-clip ">
-              <img src={collectImg2} />
-            </div>
-            <div className=" w-[22%] rounded-xl overflow-clip ">
-              <img src={collectImg3} className=" -mt-[98px] scale-[.5] " />
-            </div>
-            <div className=" w-[22%] rounded-xl overflow-clip ">
-              <img src={collectImg1} />
-            </div>
-          </div>
-          <div className=" flex flex-row justify-between items-center ">
-            <div className=" flex flex-row items-center text-gion-blue ">
+          )}
+          <div className=" flex flex-col lg:flex-row justify-between items-center ">
+            <div className=" flex flex-row items-center text-nowrap text-xs lg:text-base text-gion-blue ">
               FIND YOUR PERFECT CHILL COMPANION
-              <img src={arrow} className=" mx-1 " />
+              <img src={arrow} className=" mx-1 hidden lg:block " />
             </div>
-            <Gbutton label={"VIEW OUR COLLECTION"} w={"w-[350px]"} />
+            <Gbutton
+              label={"VIEW OUR COLLECTION"}
+              w={window?.innerWidth < 1024 ? ` w-[250px] ` : ` w-[350px] `}
+            />
           </div>
         </div>
       )}
       {/**---------------------------------------------------------------------- */}
 
-      {false && <ContentAboutUssection2 />}
+      {true && <ContentAboutUssection2 />}
 
       {/**---------------------------------------------------------------------- */}
       <ContentAboutUs />
       {/**---------------------------------------------------------------------- */}
-      {false && (
-        <div className=" w-full h-[65vh] bg-[#F3F4F6] ">
-          <div className=" mx-auto w-[60vw] h-full flex flex-row items-center gap-24 ">
-            <div className=" hover:scale-105 transition-all duration-500 rounded-lg shadow-custom-shadow overflow-clip ">
+      {true && (
+        <div className=" w-full lg:h-[65vh] bg-[#F3F4F6] ">
+          <div className=" my-4 mx-auto w-[85vw] lg:w-[60vw] h-full flex flex-row items-center gap-24 ">
+            { window?.innerWidth > 1024 && <div className=" hover:scale-105 transition-all duration-500 rounded-lg shadow-custom-shadow overflow-clip ">
               <img
                 src={collectImg3}
                 className=" h-full object-cover hover:scale-105 transition-all duration-500 cursor-pointer "
               />
-            </div>
-            <div className=" flex flex-col gap-14 ">
-              <div className=" px-10 pt-3 pb-6 w-[680px] h-[260px] flex flex-col justify-between rounded-r-xl bg-[#C1ECFF] ">
-                <div className=" flex flex-row items-center text-[#007BFF] ">
+            </div>}
+            <div className=" flex flex-col gap-7 lg:gap-14 ">
+              <div className=" px-10 pt-3 pb-6 w-[85vw] lg:w-[680px] h-[200px] lg:h-[260px] flex flex-col justify-between rounded-r-xl bg-[#C1ECFF] ">
+                <div className=" flex flex-row items-center text-xs lg:text-base text-[#007BFF] ">
                   <div className=" mx-1 h-[2px] w-[60px] bg-[#007BFF] " />
                   Have a Bulk Enquiry?
                 </div>
                 <div
-                  className={` text-4xl text-start font-semibold font-["Newsreader"] text-[#6D6D6D] `}
+                  className={` text-base lg:text-4xl text-start font-semibold font-["Newsreader"] text-[#6D6D6D] `}
                 >
                   Don’t Worry! As a Manufacturer It Is Easy For Us To Fulfill
                   All Your Bulk Orders.
                 </div>
-                <Gbutton label={"VIEW OUR COLLECTION"} w={"w-[350px]"} />
+                <Gbutton label={"VIEW OUR COLLECTION"} w={ window?.innerWidth < 1024 ? "w-[270px]" : "w-[350px]"} />
               </div>
               <div
-                className={`" w-[680px] h-[90px] flex flex-row gap-3 items-center justify-center text-[#FFFFFF] text-2xl font-bold font-["Newsreader"] rounded-r-xl bg-[#333333] "`}
+                className={` p-1 lg:w-[680px] lg:h-[90px] flex flex-row gap-1 lg:gap-3 items-center justify-center text-[#FFFFFF] text-base lg:text-2xl font-bold font-["Newsreader"] rounded-r-xl bg-[#333333] "`}
               >
                 <img src={factory} className=" w-12 " />
                 More Than 1 Decade of Manufacturing Experience
@@ -162,7 +174,7 @@ function HomePage(params) {
         </div>
       )}
 
-      {false && (
+      {(
         <div className=" w-full ">
           <ContactUs />
         </div>

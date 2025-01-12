@@ -8,7 +8,7 @@ function Gbutton(params) {
           to={`${params?.linkTo}`}
           className={` ${
             params?.w ? params?.w : `w-[162px]`
-          } h-[46px] flex justify-center items-center text-xl lg:text-2xl font-bold font-["Poppins"] text-white rounded cursor-pointer shadow-custom-shadow hover:bg-[#28A745] bg-[#007BFF] `}
+          } h-[30px] lg:h-[46px] flex justify-center items-center text-sm lg:text-2xl font-bold font-["Poppins"] text-white rounded cursor-pointer shadow-custom-shadow hover:bg-[#28A745] bg-[#007BFF] `}
         >
           {params?.label}
         </Link>
@@ -16,7 +16,7 @@ function Gbutton(params) {
         <div
           className={` ${
             params?.w ? params?.w : `w-[162px]`
-          } h-[46px] flex justify-center items-center text-xl lg:text-2xl font-bold font-["Poppins"] text-white rounded cursor-pointer shadow-custom-shadow hover:bg-[#28A745] bg-[#007BFF] `}
+          } h-[30px] lg:h-[46px] flex justify-center items-center text-sm lg:text-2xl font-bold font-["Poppins"] text-white rounded cursor-pointer shadow-custom-shadow hover:bg-[#28A745] bg-[#007BFF] `}
         >
           {params?.label}
         </div>

@@ -6,7 +6,7 @@ import Nav from './comps/Nav';
 
 function App() {
   return (
-    <div className="App">
+    <div className={`"App ${ window?.innerWidth < 1024 ? `w-screen` : `` } overflow-clip "`}>
       <Routes />
     </div>
   );

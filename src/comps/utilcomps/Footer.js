@@ -6,17 +6,17 @@ function Footer(params) {
   const location = useLocation();
 
   return (
-    <div className=" relative w-full h-[53vh] bg-[#0098DA] ">
+    <div className={` ${ window?.innerWidth < 1024 ? "w-screen" : "" } relative lg:w-full h-[125vh] lg:h-[53vh] bg-[#0098DA] `}>
       { location && <div
         className={` w-full h-[16vh] rounded-b-[200px] ${ window.location.pathname == "/products" ? `bg-white` : `bg-[#EBF4FF]`} `}
         style={{
           clipPath: "",
         }}
       />}
-      <div className=" absolute -top-24 left-44 w-[30vw] h-[30vw] flex justify-center items-center rounded-full bg-[#0098DA] ">
-        <img src={gionLogo} className=" -mt-44 w-[18vw] " />
+      <div className=" absolute -top-24 -left-[25vw] lg:left-44 w-[150vw] h-[150vw] lg:w-[30vw] lg:h-[30vw] flex justify-center items-center rounded-full bg-[#0098DA] ">
+        <img src={gionLogo} className=" -mt-80 lg:-mt-44 w-[60vw] lg:w-[18vw] " />
       </div>
-      <div className=" absolute m-10 right-[10vw] flex flex-row gap-16 text-2xl text-start font-[Poppins] text-[#FFFFFF] " >
+      <div className={` absolute mt-8 lg:m-10 lg:right-[10vw] flex flex-col lg:flex-row gap-16 text-2xl text-center lg:text-start font-[Poppins] text-[#FFFFFF] `} >
         <div className=" flex flex-col gap-4 " >
           <div className=" text-4xl underline font-[Newsreader] font-semibold " >Quick Links</div>
           <Link to="/" >Home</Link>
