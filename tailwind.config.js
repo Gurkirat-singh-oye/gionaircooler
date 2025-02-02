@@ -16,5 +16,14 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        '.backdrop-blur': {
+          '-webkit-backdrop-filter': 'blur(10px)', // Explicit iOS fallback
+          'backdrop-filter': 'blur(10px)',
+        },
+      });
+    },
+  ],
 };

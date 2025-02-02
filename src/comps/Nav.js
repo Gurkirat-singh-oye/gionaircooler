@@ -5,6 +5,11 @@ import burgerMenuIcon from "../Images/icons/Vector.svg";
 import logo from "../Images/logo/gionlogo.png";
 import { useEffect, useState } from "react";
 
+import facebookico from "../Images/icons/Facebook.svg";
+import instaico from "../Images/icons/Instagram.svg";
+import twitterico from "../Images/icons/Twitter.svg";
+import linkedinico from "../Images/icons/LinkedIn.svg";
+
 function Nav(params) {
   const NavArr = {
     Home: "/",
@@ -28,10 +33,23 @@ function Nav(params) {
   return (
     <div className="fixed w-full z-[40] ">
       <div
-        className={` w-full ${
+        className={` w-full flex flex-row gap-4 justify-center items-center ${
           window?.innerWidth < 1024 ? ` h-[30px] ` : ` h-[37px] `
         } bg-[#28A745] `}
-      ></div>
+      >
+        <div>
+          <img src={facebookico} className=" w-8 " />
+        </div>
+        <div>
+          <img src={instaico} className=" w-8 " />
+        </div>
+        <div>
+          <img src={twitterico} className=" w-8 " />
+        </div>
+        <div>
+          <img src={linkedinico} className=" w-8 " />
+        </div>
+      </div>
 
       <div
         className={` h-[${navH}px] rounded-b-3xl shadow-lg shadow-black bg-[#00B2FF26] transition-all duration-700 `}
@@ -129,15 +147,22 @@ function Nav(params) {
           )}
           {/* <div className="mx-[130px]" /> */}
         </div>
-        <div className={` px-9 ${ navH === 113 ? ` h-0 duration-500 ` : ` h-[400px] duration-1000 ` } flex flex-col items-end transition-all overflow-clip `} >
-          {
-            Object.keys(NavArr).map( (each, ind) => {
-
-              return <Link to={NavArr[each]} className=" py-2 text-3xl " onClick={() => setNavH(113)} >
+        <div
+          className={` px-9 ${
+            navH === 113 ? ` h-0 duration-500 ` : ` h-[400px] duration-1000 `
+          } flex flex-col items-end transition-all overflow-clip `}
+        >
+          {Object.keys(NavArr).map((each, ind) => {
+            return (
+              <Link
+                to={NavArr[each]}
+                className=" py-2 text-3xl "
+                onClick={() => setNavH(113)}
+              >
                 {each}
               </Link>
-            } )
-          }
+            );
+          })}
         </div>
       </div>
     </div>

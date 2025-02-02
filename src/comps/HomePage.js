@@ -121,14 +121,16 @@ function HomePage(params) {
               </div>
             </div>
           )}
-          <div className=" flex flex-col lg:flex-row justify-between items-center ">
-            <div className=" flex flex-row items-center text-nowrap text-xs lg:text-base text-gion-blue ">
+          <div className=" flex flex-col lg:flex-row gap-2 justify-between items-center ">
+            <div className=" flex flex-row items-center text-center lg:text-start text-nowrap text-xs lg:text-base underline decoration-dotted text-gion-blue ">
               FIND YOUR PERFECT CHILL COMPANION
               <img src={arrow} className=" mx-1 hidden lg:block " />
             </div>
             <Gbutton
               label={"VIEW OUR COLLECTION"}
-              w={window?.innerWidth < 1024 ? ` w-[250px] ` : ` w-[350px] `}
+              w={ window?.innerWidth < 1024 ? ` w-[250px] ` : ` w-[350px] ` }
+              h={ window?.innerWidth < 1024 ? ` h-[46px] ` : false }
+              txt={ window?.innerWidth < 1024 ? ` text-lg ` : false }
             />
           </div>
         </div>
@@ -150,23 +152,23 @@ function HomePage(params) {
               />
             </div>}
             <div className=" flex flex-col gap-7 lg:gap-14 ">
-              <div className=" px-10 pt-3 pb-6 w-[85vw] lg:w-[680px] h-[200px] lg:h-[260px] flex flex-col justify-between rounded-r-xl bg-[#C1ECFF] ">
+              <div className=" px-5 lg:px-10 pt-3 pb-6 w-[85vw] lg:w-[680px] h-[200px] lg:h-[260px] flex flex-col justify-between items-center lg:items-start rounded-r-xl bg-[#C1ECFF] ">
                 <div className=" flex flex-row items-center text-xs lg:text-base text-[#007BFF] ">
-                  <div className=" mx-1 h-[2px] w-[60px] bg-[#007BFF] " />
+                  <div className=" mx-1 h-[2px] w-[18px] lg:w-[60px] bg-[#007BFF] " />
                   Have a Bulk Enquiry?
                 </div>
                 <div
-                  className={` text-base lg:text-4xl text-start font-semibold font-["Newsreader"] text-[#6D6D6D] `}
+                  className={` text-xl lg:text-4xl text-center lg:text-start font-semibold font-["Newsreader"] text-[#6D6D6D] `}
                 >
                   Don’t Worry! As a Manufacturer It Is Easy For Us To Fulfill
                   All Your Bulk Orders.
                 </div>
-                <Gbutton label={"VIEW OUR COLLECTION"} w={ window?.innerWidth < 1024 ? "w-[270px]" : "w-[350px]"} />
+                <Gbutton label={"VIEW OUR COLLECTION"} w={ window?.innerWidth < 1024 ? "w-[200px]" : "w-[350px]"} />
               </div>
               <div
-                className={` p-1 lg:w-[680px] lg:h-[90px] flex flex-row gap-1 lg:gap-3 items-center justify-center text-[#FFFFFF] text-base lg:text-2xl font-bold font-["Newsreader"] rounded-r-xl bg-[#333333] "`}
+                className={` p-1 lg:w-[680px] lg:h-[90px] flex flex-row gap-1 lg:gap-3 items-center justify-center text-[#FFFFFF] text-base lg:text-2xl text-center lg:text-start font-bold font-["Newsreader"] rounded-r-xl bg-[#333333] "`}
               >
-                <img src={factory} className=" w-12 " />
+                <img src={factory} className=" pl-1 w-12 " />
                 More Than 1 Decade of Manufacturing Experience
               </div>
             </div>

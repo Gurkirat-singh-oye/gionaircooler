@@ -112,9 +112,9 @@ function ContentAboutUs(params) {
 
 function ContentAboutUssection2(params) {
   return (
-    <div className=" w-full lg:h-[70vh] flex flex-col justify-between ">
+    <div className=" w-full lg:h-[70vh] flex flex-col justify-between text-center ">
       <div className=" py-4 w-full min-h-[36%] flex flex-col lg:flex-row justify-center items-center gap-8 lg:gap-64 text-xs lg:text-base text-nowrap bg-[#F2F3F8] ">
-        <div className=" lg:hidden flex flex-col font-bold " >
+        <div className=" lg:hidden flex flex-col font-bold text-center " >
           <div className=" text-gion-blue " >BEST</div>
           AIR COOLER BRAND IN INDIA
         </div>
