@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       colors: {
         "gion-blue": "#0098DA",
+        "gion-teal": "#2C6975"
       },
       boxShadow: {
         "custom-shadow": `-27px 29px 11px 0px rgba(0, 0, 0, 0.01), 

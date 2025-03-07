@@ -32,7 +32,7 @@ function Nav(params) {
 
   return (
     <div className="fixed w-full z-[40] ">
-      <div
+      {/* <div
         className={` w-full flex flex-row gap-4 justify-center items-center ${
           window?.innerWidth < 1024 ? ` h-[30px] ` : ` h-[37px] `
         } bg-[#28A745] `}
@@ -49,10 +49,10 @@ function Nav(params) {
         <div>
           <img src={linkedinico} className=" w-8 " />
         </div>
-      </div>
+      </div> */}
 
       <div
-        className={` h-[${navH}px] rounded-b-3xl shadow-lg shadow-black bg-[#00B2FF26] transition-all duration-700 `}
+        className={` my-8 mx-32 h-[${navH}px] rounded-full bg-[#2C69751A] transition-all duration-700 `}
       >
         <div
           className={` absolute w-full h-[${navH}px] backdrop-blur-md rounded-b-3xl transition-all duration-700 -z-10 `}
@@ -77,7 +77,7 @@ function Nav(params) {
               </div>
             </div>
           </div> */}
-              <div className=" mx-4 flex flex-row gap-20 text-2xl font-semibold ">
+              <div className=" mx-4 flex flex-row gap-10 text-xl text-gion-teal text-nowrap font-light ">
                 {Object.keys(NavArr).map((each, ind) => {
                   return (
                     <Link
@@ -98,11 +98,11 @@ function Nav(params) {
                         {each}
                       </div>
                       <div
-                        className={` mt-2 h-[3px] ${
+                        className={` mt-1 h-[3px] ${
                           window.location.pathname == NavArr[each]
                             ? `w-[45px]`
                             : `w-0`
-                        } rounded-full group-hover:w-[55px] transition-all duration-300 bg-neutral-800 `}
+                        } rounded-full group-hover:w-[55px] transition-all duration-300 bg-gion-teal `}
                       />
                       {NavArr[each] === "/products" && productsMenu && (
                         <div className=" absolute top-[103px] ml-10 pt-12 w-[140px] ">
@@ -119,7 +119,7 @@ function Nav(params) {
               </div>
             </div>
           )}
-          {window?.innerWidth > 1024 ? (
+          {/* {window?.innerWidth > 1024 ? (
             <div className=" mr-[155px] flex flex-row ">
               <div className=" mb-5 flex flex-row ">
                 <input
@@ -144,7 +144,7 @@ function Nav(params) {
                 <img src={burgerMenuIcon} />
               </div>
             </div>
-          )}
+          )} */}
           {/* <div className="mx-[130px]" /> */}
         </div>
         <div
