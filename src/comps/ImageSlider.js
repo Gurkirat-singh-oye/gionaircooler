@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import img from "../Images/set_image_slider/4e25a634ad9e1b8db3a44f2cd4cb121a.png";
 import im1 from "../Images/set_image_slider/755c4a4309ac7a7822f6daadf524da48.png";
@@ -7,7 +7,77 @@ import im3 from "../Images/set_image_slider/ee8f5d0266b915a51e22cdeaa4caee80.png
 import im4 from "../Images/set_image_slider/4e25a634ad9e1b8db3a44f2cd4cb121a.png";
 import arrow from "../Images/icons/Arrow Right.svg";
 
+import cool1 from "../Images/set_image_slider/punk_cooler.webp"
+import cool2 from "../Images/set_image_slider/vint_cooler .webp"
+import cool3 from "../Images/set_image_slider/room_cooler.webp"
+import cool4 from "../Images/set_image_slider/garden_cooler.webp"
+
 const ImageSlider = (props) => {
+
+  const [forDot, setForDot] = useState(69);
+
+  // useEffect(() => {
+  //   if (forDot < 0){
+  //     setForDot(4)
+  //   }
+  // }, [forDot])
+
+  const [imgArr, setImgArr] = useState([
+    <div className=" w-full h-[70vh] bg-gion-teal overflow-clip ">
+      <img src={cool1} className=" h-full lg:w-full object-cover " />
+    </div>,
+    <div className=" w-full h-[70vh] bg-gion-teal overflow-clip ">
+      <img src={cool2} className=" h-full lg:w-full object-cover " />
+    </div>,
+    <div className=" w-full h-[70vh] bg-gion-teal overflow-clip ">
+      <img src={cool3} className=" h-full lg:w-full object-cover " />
+    </div>,
+    <div className=" w-full h-[70vh] bg-gion-teal overflow-clip ">
+      <img src={cool4} className=" h-full lg:w-full object-cover " />
+    </div>,
+  ]);
+
+  return (
+    <div>
+      <div>
+        {imgArr[forDot%4]}
+      </div>
+      <div>
+        <div
+          className={` ${
+            props?.mobView ? ` -mt-10 ` : `my-4`
+          } flex flex-row justify-center gap-4 `}
+        >
+          <img
+            src={arrow}
+            className=" w-5 h-5 cursor-pointer rotate-180"
+            onClick={() => {setForDot(forDot-1)}}
+          />
+          <div className=" flex flex-row gap-2 items-center ">
+            {imgArr?.map((each, ind) => {
+              return (
+                <>
+                  {forDot%4 == ind ? (
+                    <div className=" w-[13px] h-[13px] rounded-full bg-gion-teal " />
+                  ) : (
+                    <div className=" w-[10px] h-[10px] rounded-full bg-neutral-300 " />
+                  )}
+                </>
+              );
+            })}
+          </div>
+          <img
+            src={arrow}
+            className=" w-5 h-5 cursor-pointer"
+            onClick={() => {setForDot(forDot+1)}}
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const ImageSliderOld = (props) => {
   const [positionIndexes, setPositionIndexes] = useState([0, 1, 2, 3, 4]);
   const [forDot, setForDot] = useState([0, 1, 2, 3, 4]);
 
@@ -56,7 +126,11 @@ const ImageSlider = (props) => {
   return (
     <div className=" absolute w-screen lg:w-full flex flex-col gap-3 overflow-clip ">
       <div>
-        <div className={` flex items-center justify-center flex-col ${ props?.mobView ? ` h-[40vh] ` : ` h-[50vh] ` } `}>
+        <div
+          className={` flex items-center justify-center flex-col ${
+            props?.mobView ? ` h-[40vh] ` : ` h-[50vh] `
+          } `}
+        >
           <div
             className={` absolute flex justify-between ${
               props?.mobView ? "w-[125%]" : "w-[80%]"

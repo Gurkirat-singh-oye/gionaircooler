@@ -7,38 +7,44 @@ import collectImg2 from "../Images/productimages/b660e6b73aceb914e737810b4dd1181
 import collectImg3 from "../Images/productimages/ee8f5d0266b915a51e22cdeaa4caee80.png";
 import arrow from "../Images/icons/Line 2.svg";
 import factory from "../Images/icons/factory.png";
+import heart from "../Images/icons/heart.svg";
+import left from "../Images/icons/Left.svg"
+import right from "../Images/icons/Right.svg"
 
 import { ContentAboutUs } from "./AboutUs";
 import { ContentAboutUssection2 } from "./AboutUs";
 import Gbutton from "./utilcomps/Gbutton";
 import ContactUs from "./ContactUs";
+import { useState } from "react";
 
 function Content(params) {
   return (
-    <div className=" -ml-[550px] grid grid-flow-col ">
-      <div className=" mt-16 w-[45vw] flex flex-col flex-grow  justify-center z-[10] ">
-        <div className=" flex flex-col items-start text-nowrap gap-6 ">
-          <div className="text-7xl font-bold font-[Newsreader] text-gion-blue [text-shadow:_-3px_3px_3.5px_rgb(0_0_0_/_50%)] ">
-            Stay Cool
+    <div className="">
+      {false && (
+        <div className=" mt-16 w-[45vw] flex flex-col flex-grow  justify-center z-[10] ">
+          <div className=" flex flex-col items-start text-nowrap gap-6 ">
+            <div className="text-7xl font-bold font-[Newsreader] text-gion-blue [text-shadow:_-3px_3px_3.5px_rgb(0_0_0_/_50%)] ">
+              Stay Cool
+            </div>
+            <div className="text-7xl font-bold font-[Newsreader] text-[#FFAA4D] [text-shadow:_-3px_3px_3.5px_rgb(0_0_0_/_50%)] ">
+              Stay Comfortable
+            </div>
+            <div className="text-4xl ">~anytime, anywhere</div>
           </div>
-          <div className="text-7xl font-bold font-[Newsreader] text-[#FFAA4D] [text-shadow:_-3px_3px_3.5px_rgb(0_0_0_/_50%)] ">
-            Stay Comfortable
+
+          <div className=" my-6 ">
+            <Gbutton label={"Shop Now"} linkTo={"products"} />
           </div>
-          <div className="text-4xl ">~anytime, anywhere</div>
-        </div>
 
-        <div className=" my-6 ">
-          <Gbutton label={"Shop Now"} linkTo={"products"} />
-        </div>
-
-        {/* <Link
+          {/* <Link
           to="products"
           className=" my-6 w-[162px] h-[46px] flex justify-center items-center text-2xl text-white rounded cursor-pointer shadow-neutral-600 shadow-md hover:bg-[#28A745] bg-[#007BFF] "
         >
           Shop Now
         </Link> */}
-      </div>
-      <div className=" absolute right-0 w-[65vw] ">
+        </div>
+      )}
+      <div className="  ">
         <ImageSlider mobView={false} />
       </div>
     </div>
@@ -47,94 +53,100 @@ function Content(params) {
 
 function ContentMobView(params) {
   return (
-    <div className=" mb-72 w-screen ">
-      <div className=" pt-6 flex flex-col items-center text-nowrap gap-4 ">
-        <div className=" text-5xl font-bold font-[Newsreader] text-gion-blue [text-shadow:_-2px_2px_4px_rgb(0_0_0_/_50%)] ">
-          Stay Cool
-        </div>
-        <div className=" text-5xl font-bold font-[Newsreader] text-[#FFAA4D] [text-shadow:_-2px_2px_4px_rgb(0_0_0_/_50%)] ">
-          Stay Comfortable
-        </div>
-        <div className=" text-4xl font-[Poppins] ">~anytime, anywhere</div>
-        <div className=" my-4 ">
-          <Gbutton label={"Shop Now"} linkTo={"products"} />
-        </div>
-      </div>
+    <div className="  w-screen ">
 
-      <ImageSlider mobView={true} />
+      <ImageSlider   />
+    </div>
+  );
+}
+
+function CoolProductsCard(params) {
+  return (
+    <div className=" relative w-72 h-96 rounded-xl flex flex-col items-center border border-gion-teal ">
+      <div className=" absolute m-4 p-2 top-0 right-0 rounded-full hover:bg-neutral-100 cursor-pointer ">
+        <img src={heart} className="  " />
+      </div>
+      <div className=" p-2 h-[75%] overflow-clip ">
+        <img src={params?.image} className=" h-full object-cover rounded-xl " />
+      </div>
+      <div className=" p-4 flex flex-col gap-2 items-center ">
+        <div className=" flex flex-row gap-8 text-gion-teal ">
+          <div className=" font-light ">GE-512T</div> {/** name to be added with api */}
+          <div className=" font-semibold ">12,000</div>
+        </div>
+        <Gbutton
+          txt={` text-sm lg:text-lg `}
+          h={` h-[30px] lg:h-[40px] `}
+          label={"ENQUIRY NOW"}
+          color={" bg-gion-seafoam-green "}
+        />
+      </div>
     </div>
   );
 }
 
 function HomePage(params) {
+
+  const [coolPrdInd, setCoolPrdInd] = useState(34);
+  const coolProductsArr = [
+    { img: collectImg1 },
+    { img: collectImg2 },
+    { img: collectImg1 },
+    { img: collectImg2 },
+  ];
+
   return (
-    <div className=" w-screen h-full flex flex-col gap-20 items-center overflow-clip ">
+    <div className=" w-screen h-full flex flex-col gap-10 items-center overflow-clip ">
       {window?.innerWidth < 1024 ? (
         <ContentMobView />
       ) : (
-        <div className=" mt-10 h-[60vh] ">
+        <div className=" mt-10 w-full ">
           <Content />
         </div>
       )}
       {/**--------------------------------------------------------------------------- */}
-      {true && (
-        <div
-          id="collections_slide"
-          className=" w-[60vw] h-[500px] flex flex-col justify-between "
-        >
-          <div className="  flex flex-row justify-between ">
-            <div className=" w-full lg:w-[30%] flex flex-col text-start ">
-              <div className=" flex flex-row items-center text-xs lg:text-base text-nowrap text-gion-blue ">
-                <div className=" mx-1 w-[55px] lg:w-[80px] h-[2px] bg-[#0098DA] " />
-                OUR COLLECTION
-              </div>
-              <div
-                className={` text-5xl text-[#6C757D] font-bold font-["Newsreader"] `}
-              >
-                OUR SUPERCOOL PRODUCTS!
-              </div>
-            </div>
-            <div className=" h-[220px] rounded-3xl hiddem lg:block overflow-clip ">
-              <img src={colectionImg} className=" -mt-36 object-cover " />
-            </div>
-          </div>
-          {true && (
-            /** change this to not absolute position */
-            <div className=" w-screen lg:w-full my-3 -ml-16 lg:ml-0 overflow-x-scroll lg:overflow-hidden ">
-              <div
-                className={` ${
-                  window?.innerWidth < 1024 ? ` w-[1000px] ` : `  `
-                } h-full flex flex-row gap-16  `}
-              >
-                <div className=" w-80 lg:w-[22%] rounded-xl overflow-clip ">
-                  <img src={collectImg1} className=" h-full object-cover " />
-                </div>
-                <div className=" w-60 lg:w-[22%] rounded-xl overflow-clip ">
-                  <img src={collectImg2} className=" h-full object-cover " />
-                </div>
-                <div className=" w-60 lg:w-[22%] rounded-xl overflow-clip ">
-                  <img src={collectImg1} className=" h-full object-cover " />
-                </div>
-                <div className=" w-60 lg:w-[22%] rounded-xl overflow-clip ">
-                  <img src={collectImg2} className=" h-full object-cover " />
-                </div>
-              </div>
-            </div>
-          )}
-          <div className=" flex flex-col lg:flex-row gap-2 justify-between items-center ">
-            <div className=" flex flex-row items-center text-center lg:text-start text-nowrap text-xs lg:text-base underline decoration-dotted text-gion-blue ">
-              FIND YOUR PERFECT CHILL COMPANION
-              <img src={arrow} className=" mx-1 hidden lg:block " />
-            </div>
-            <Gbutton
-              label={"VIEW OUR COLLECTION"}
-              w={ window?.innerWidth < 1024 ? ` w-[250px] ` : ` w-[350px] ` }
-              h={ window?.innerWidth < 1024 ? ` h-[46px] ` : false }
-              txt={ window?.innerWidth < 1024 ? ` text-lg ` : false }
-            />
+      <div
+        id="collections_slide"
+        className=" w-[70vw] flex flex-col gap-8 lg:gap-16 items-center "
+      >
+        <div className="  flex flex-row justify-center ">
+          <div className={` text-[30px] lg:text-[60px] text-center text-[#6C757D] font-doodle `}>
+            OUR SUPERCOOL PRODUCTS!
           </div>
         </div>
-      )}
+
+        <div className=" relative w-screen lg:w-full my-3 overflow-hidden ">
+          { window?.innerWidth < 1024 && <div className=" absolute inset-y-0 w-screen h-full flex flex-row justify-between items-center z-20 " >
+            <div>
+              <img src={left} />
+            </div>
+            <div>
+              <img src={right} />
+            </div>
+          </div>}
+          <div
+            className={` ${
+              window?.innerWidth < 1024 ? ` w-full ` : `  `
+            } h-full flex flex-row justify-center gap-16  `}
+          >
+            {
+              coolProductsArr?.map((each, ind) => {
+                if (window?.innerWidth < 1024) {
+                  return (<>{ Math.abs(coolPrdInd)%4 == ind && <CoolProductsCard image={each?.img} /> }</>)
+                } else return <CoolProductsCard image={each?.img} />
+              })
+            }
+          </div>
+        </div>
+        <div className=" flex flex-col lg:flex-row gap-2 justify-between items-center ">
+          <Gbutton
+            label={"VIEW OUR COLLECTION"}
+            w={window?.innerWidth < 1024 ? ` w-[250px] ` : ` w-[350px] `}
+            h={window?.innerWidth < 1024 ? ` h-[46px] ` : false}
+            txt={window?.innerWidth < 1024 ? ` text-lg ` : false}
+          />
+        </div>
+      </div>
       {/**---------------------------------------------------------------------- */}
 
       {true && <ContentAboutUssection2 />}
@@ -145,12 +157,14 @@ function HomePage(params) {
       {true && (
         <div className=" w-full lg:h-[65vh] bg-[#F3F4F6] ">
           <div className=" my-4 mx-auto w-[85vw] lg:w-[60vw] h-full flex flex-row items-center gap-24 ">
-            { window?.innerWidth > 1024 && <div className=" hover:scale-105 transition-all duration-500 rounded-lg shadow-custom-shadow overflow-clip ">
-              <img
-                src={collectImg3}
-                className=" h-full object-cover hover:scale-105 transition-all duration-500 cursor-pointer "
-              />
-            </div>}
+            {window?.innerWidth > 1024 && (
+              <div className=" hover:scale-105 transition-all duration-500 rounded-lg shadow-custom-shadow overflow-clip ">
+                <img
+                  src={collectImg3}
+                  className=" h-full object-cover hover:scale-105 transition-all duration-500 cursor-pointer "
+                />
+              </div>
+            )}
             <div className=" flex flex-col gap-7 lg:gap-14 ">
               <div className=" px-5 lg:px-10 pt-3 pb-6 w-[85vw] lg:w-[680px] h-[200px] lg:h-[260px] flex flex-col justify-between items-center lg:items-start rounded-r-xl bg-[#C1ECFF] ">
                 <div className=" flex flex-row items-center text-xs lg:text-base text-[#007BFF] ">
@@ -163,7 +177,10 @@ function HomePage(params) {
                   Don’t Worry! As a Manufacturer It Is Easy For Us To Fulfill
                   All Your Bulk Orders.
                 </div>
-                <Gbutton label={"VIEW OUR COLLECTION"} w={ window?.innerWidth < 1024 ? "w-[200px]" : "w-[350px]"} />
+                <Gbutton
+                  label={"VIEW OUR COLLECTION"}
+                  w={window?.innerWidth < 1024 ? "w-[200px]" : "w-[350px]"}
+                />
               </div>
               <div
                 className={` p-1 lg:w-[680px] lg:h-[90px] flex flex-row gap-1 lg:gap-3 items-center justify-center text-[#FFFFFF] text-base lg:text-2xl text-center lg:text-start font-bold font-["Newsreader"] rounded-r-xl bg-[#333333] "`}
@@ -176,11 +193,11 @@ function HomePage(params) {
         </div>
       )}
 
-      {(
+      {
         <div className=" w-full ">
           <ContactUs />
         </div>
-      )}
+      }
     </div>
   );
 }

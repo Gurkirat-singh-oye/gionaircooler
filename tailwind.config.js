@@ -5,7 +5,8 @@ module.exports = {
     extend: {
       colors: {
         "gion-blue": "#0098DA",
-        "gion-teal": "#2C6975"
+        "gion-teal": "#2C6975",
+        "gion-seafoam-green": "#5FA8A3",
       },
       boxShadow: {
         "custom-shadow": `-27px 29px 11px 0px rgba(0, 0, 0, 0.01), 
@@ -14,6 +15,10 @@ module.exports = {
                             -4px 5px 6px 0px rgba(0, 0, 0, 0.34), 
                             -1px 1px 4px 0px rgba(0, 0, 0, 0.39), 
                             0px 4px 6px 0px rgba(0, 17, 24, 0.30)`,
+      },
+      fontFamily: {
+        doodle: ['"Rubik Doodle Shadow"', 'cursive'],
+        poppins: ['Poppins', 'sans-serif'],
       },
     },
   },
