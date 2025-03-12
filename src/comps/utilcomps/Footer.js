@@ -16,7 +16,7 @@ function Footer(params) {
     <div
       className={` ${
         window?.innerWidth < 1024 ? "w-screen flex flex-col items-center " : ""
-      } relative lg:w-full ${ window?.innerWidth < 400 ? "h-[170vh]" : "h-[120vh]" } lg:h-[53vh] bg-[#0098DA] `}
+      } relative lg:w-full ${ window?.innerWidth < 400 ? "h-[170vh]" : "h-[120vh]" } lg:h-[53vh] bg-gion-teal `}
     >
       {location && (
         <div
@@ -30,20 +30,20 @@ function Footer(params) {
           }}
         />
       )}
-      <div className=" py-14 absolute -top-24 -left-[25vw] lg:left-44 w-[150vw] h-[150vw] lg:w-[30vw] lg:h-[30vw] flex flex-col justify-between items-center rounded-full bg-[#0098DA] ">
+      <div className=" py-14 absolute -top-24 -left-[25vw] lg:left-44 w-[150vw] h-[150vw] lg:w-[30vw] lg:h-[30vw] flex flex-col justify-between items-center rounded-full bg-gion-teal ">
         <img src={gionLogo} className="  w-[60vw] lg:w-[18vw] " />
-        <div className=" absolute hidden lg:flex flex-row gap-6 bottom-0 -left-[20%] ">
+        <div className=" absolute hidden h-full pt-64 lg:flex flex-row gap-6 items-center  ">
           <div>
-            <img src={facebookico} className=" w-16 " />
+            <img src={facebookico} className=" w-16 rounded-2xl bg-white " />
           </div>
           <div>
-            <img src={instaico} className=" w-16 " />
+            <img src={instaico} className=" w-16 rounded-2xl bg-white " />
           </div>
           <div>
-            <img src={twitterico} className=" w-16 " />
+            <img src={twitterico} className=" w-16 rounded-2xl bg-white " />
           </div>
           <div>
-            <img src={linkedinico} className=" w-16 " />
+            <img src={linkedinico} className=" w-16 rounded-2xl bg-white " />
           </div>
         </div>
       </div>

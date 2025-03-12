@@ -19,6 +19,7 @@ module.exports = {
       fontFamily: {
         doodle: ['"Rubik Doodle Shadow"', 'cursive'],
         poppins: ['Poppins', 'sans-serif'],
+        urbanist: ['Urbanist', 'sans-serif'],
       },
     },
   },
