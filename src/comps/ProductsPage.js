@@ -21,10 +21,10 @@ import Gbutton from "./utilcomps/Gbutton";
 
 function ProductCard(params) {
   return (
-    <div className=" w-[180px] h-[290px] lg:w-[400px] lg:h-[580px] flex flex-col border-[1px] border-[#F3F3F3] hover:bg-[#F3F3F3] hover:scale-105 transition-all duration-500 rounded-b-lg cursor-pointer group ">
+    <div className=" w-[180px] h-[290px] lg:w-[360px] lg:h-[560px] flex flex-col border-[1px] border-[#F3F3F3] hover:bg-[#F3F3F3] hover:scale-105 transition-all duration-500 rounded-b-lg cursor-pointer group ">
       <div className=" overflow-clip ">
         <img
-          className=" h-[180px] lg:h-[400px] group-hover:scale-95 transition-all duration-500 object-cover "
+          className=" h-[180px] lg:h-[370px] group-hover:scale-95 transition-all duration-500 object-cover "
           src={params?.img}
         />
       </div>
@@ -136,7 +136,7 @@ function ProductsPage(params) {
       <div
         className={` w-full ${
           0 ? `h-[300px]` : `h-[160px]`
-        } lg:h-[280px] flex flex-col gap-3 lg:gap-10 justify-center items-center text-[#FFFFFF] bg-[#0098DA] `}
+        } lg:h-[280px] flex flex-col gap-3 lg:gap-10 justify-center items-center text-[#FFFFFF] bg-gion-teal `}
       >
         <div className=" text-5xl lg:text-6xl font-[Newsreader] font-bold ">
           {" "}
@@ -220,7 +220,7 @@ function ProductsPage(params) {
       {true && (
         <div id="products_content" className=" lg:m-20 flex flex-col lg:flex-row gap-2 lg:gap-16 ">
           {/** get all filters from backend */}
-          { true && <div
+          { false && <div
             id="filters"
             className=" w-screen lg:w-80 flex flex-col flex-shrink-0 gap-5 "
           >

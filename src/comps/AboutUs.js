@@ -27,7 +27,7 @@ function ContentAboutUs(params) {
         window?.innerWidth < 1024 ? ` flex-col gap-8 ` : ` flex-row gap-28 `
       } `}
     >
-      <div className=" hidden lg:block absolute -left-[270px] top-56 h-20 text-nowrap text-5xl font-semibold tracking-[0.3em] opacity-15 -rotate-90 " > A B O U T U S </div>
+      <div className=" hidden lg:block absolute -left-[370px] top-72 h-20 text-nowrap text-5xl font-semibold tracking-[0.6em] opacity-15 -rotate-90 " > A B O U T U S </div>
       <div
         className={` ${
           window?.innerWidth < 1024 ? ` h-[400px] ` : `  `
@@ -44,14 +44,14 @@ function ContentAboutUs(params) {
         } items-start justify-between `}
       >
         <div
-          className={` text-left ${
+          className={` text-center lg:text-left ${
             window?.innerWidth < 768 ? `text-[28px]` : `text-6xl`
           } text-gion-teal font-bold font-urbanist `}
         >
           Advanced Cooling for Ultimate Comfort
         </div>
         <div
-          className={` text-[#495057] text-start ${
+          className={` text-[#495057] text-center lg:text-start ${
             window?.innerWidth < 1024 ? ` text-xs ` : ` text-xl `
           } `}
         >
@@ -63,7 +63,7 @@ function ContentAboutUs(params) {
           ultimate convenience.
         </div>
         <div
-          className={` text-[#495057] text-start ${
+          className={` text-[#495057] text-center lg:text-start ${
             window?.innerWidth < 1024 ? ` text-xs ` : ` text-xl `
           } `}
         >
@@ -72,7 +72,7 @@ function ContentAboutUs(params) {
           performance, and reliability. Experience the cooling technology that
           makes us a leader in the industry.
         </div>
-        <Link to="/products" className=" text-gion-seafoam-green text-lg ">
+        <Link to="/products" className=" text-gion-seafoam-green text-xs lg:text-lg text-center ">
           {" "}
           Explore Gion Air Cooler...{" "}
         </Link>
@@ -83,43 +83,43 @@ function ContentAboutUs(params) {
 
 function ContentAboutUssection2(params) {
   return (
-    <div className=" w-full lg:h-[70vh] flex flex-col justify-between text-center ">
+    <div className=" py-10 lg:py-2 w-full lg:h-[70vh] flex flex-col justify-between text-center ">
       <div className=" pt-6 w-full min-h-[36%] flex flex-col gap-10 bg-[#F2F3F8] ">
         <div className=" flex flex-col font-extralight text-center text-2xl lg:text-5xl text-gion-teal ">
           BEST AIRCOOLER BRAND IN INDIA
         </div>
-        <div className=" w-full flex flex-row gap-8 lg:gap-64 justify-center items-center text-xs lg:text-base text-nowrap ">
-          <div className=" w-[55vw] lg:w-[25vw] h-full flex flex-row justify-between items-center text-center ">
-            <div className=" -mt-4 w-[80px] lg:w-[120px] flex flex-row gap-4 ">
+        <div className=" w-full flex flex-col lg:flex-row gap-8 lg:gap-64 justify-center items-center text-xs lg:text-base text-nowrap ">
+          <div className=" w-[65vw] lg:w-[25vw] h-full flex flex-row justify-between items-center text-center ">
+            <div className=" -mt-4 w-[80px] lg:w-[120px] flex flex-row justify-center gap-1 lg:gap-4 ">
               <img src={happyCust} className=" object-cover " />
               <div className=" flex flex-col justify-center ">
                 <div>10Lacs+ Happy</div>
-                <div className=" text-gion-blue font-semibold ">Customers</div>
+                <div className=" text-gion-teal font-semibold ">Customers</div>
               </div>
             </div>
-            <div className=" w-[70px] lg:w-[120px] flex flex-row gap-4 ">
+            <div className=" w-[70px] lg:w-[120px] flex flex-row justify-center gap-1 lg:gap-4 ">
               <img src={ship} className=" pb-3 object-cover " />
               <div className=" flex flex-col justify-center ">
                 <div>Faster</div>
-                <div className=" text-gion-blue font-semibold ">Delivery</div>
+                <div className=" text-gion-teal font-semibold ">Delivery</div>
               </div>
             </div>
           </div>
           <div
             className={` w-[55vw] lg:w-[25vw] h-full flex flex-row justify-between items-center text-center `}
           >
-            <div className=" ml-5 w-[40px] lg:w-[65px] flex flex-row gap-4 ">
+            <div className=" ml-5 w-[40px] lg:w-[65px] flex flex-row justify-center gap-1 lg:gap-4 ">
               <img src={servMan} className=" pb-4 object-cover " />
               <div className=" flex flex-col justify-center ">
                 <div>On Site</div>
-                <div className=" text-gion-blue font-semibold ">Service</div>
+                <div className=" text-gion-teal font-semibold ">Service</div>
               </div>
             </div>
-            <div className=" w-[70px] lg:w-[120px] flex flex-row gap-4 ">
+            <div className=" w-[70px] lg:w-[120px] flex flex-row justify-center gap-1 lg:gap-4 ">
               <img src={INFlag} className=" pb-3 object-cover " />
               <div className=" flex flex-col justify-center ">
                 <div>Made in India</div>
-                <div className=" text-gion-blue font-semibold ">Products</div>
+                <div className=" text-gion-teal font-semibold ">Products</div>
               </div>
             </div>
           </div>

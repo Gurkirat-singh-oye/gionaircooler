@@ -40,7 +40,7 @@ function Nav(params) {
   return (
     <div className="fixed w-full z-[40] ">
       <div
-        className={` mt-8 mx-4 lg:mx-32 h-[${navH}px] rounded-full bg-[#2C69751A] border border-[#DEEFFF] transition-all duration-700 `}
+        className={` my-4 mx-4 lg:mx-32 h-[${navH}px] rounded-full bg-[#2C69751A] border border-[#DEEFFF] transition-all duration-700 `}
       >
         <div
           className={` relative px-[30px] lg:px-0 w-full h-[${navH}px] max-h-[113px] flex flex-row lg:gap-32 items-center justify-between `}

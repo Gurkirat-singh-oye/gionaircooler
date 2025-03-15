@@ -10,7 +10,7 @@ function Gbutton(params) {
             params?.h ? params?.h : ` h-[30px] lg:h-[46px] `
           } ${
             params?.txt ? params?.txt : ` text-sm lg:text-2xl `
-          } flex justify-center items-center font-bold font-poppins text-white rounded cursor-pointer shadow-custom-shadow hover:bg-opacity-95 ${ params?.color ? params?.color : ` bg-gion-teal ` } `}
+          } flex justify-center items-center font-bold font-poppins ${ params?.txtColor ? ` text-gion-teal ` : ` text-white ` } rounded cursor-pointer shadow-custom-shadow hover:bg-opacity-95 ${ params?.color ? params?.color : ` bg-gion-teal ` } `}
         >
           {params?.label}
         </Link>
@@ -20,7 +20,7 @@ function Gbutton(params) {
             params?.h ? params?.h : ` h-[30px] lg:h-[46px] `
           } ${
             params?.txt ? params?.txt : ` text-sm lg:text-2xl `
-          } flex justify-center items-center font-bold font-poppins text-white rounded cursor-pointer shadow-custom-shadow hover:bg-opacity-95 ${ params?.color ? params?.color : ` bg-gion-teal ` } `}
+          } flex justify-center items-center font-bold font-poppins ${ params?.txtColor ? ` text-gion-teal ` : ` text-white ` } rounded cursor-pointer shadow-custom-shadow hover:bg-opacity-95 ${ params?.color ? params?.color : ` bg-gion-teal ` } `}
         >
           {params?.label}
         </div>

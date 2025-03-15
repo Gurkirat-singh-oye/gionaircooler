@@ -9,11 +9,11 @@ module.exports = {
         "gion-seafoam-green": "#5FA8A3",
       },
       boxShadow: {
-        "custom-shadow": `-27px 29px 11px 0px rgba(0, 0, 0, 0.01), 
-                            -17px 19px 10px 0px rgba(0, 0, 0, 0.06), 
-                            -10px 11px 9px 0px rgba(0, 0, 0, 0.20), 
-                            -4px 5px 6px 0px rgba(0, 0, 0, 0.34), 
-                            -1px 1px 4px 0px rgba(0, 0, 0, 0.39), 
+        "custom-shadow": `-87px 49px 51px 0px rgba(0, 0, 0, 0.2), 
+                            -57px 22px 20px 0px rgba(0, 0, 0, 0.06), 
+                            -28px 21px 16px 0px rgba(0, 0, 0, 0.20), 
+                            -12px 10px 15px 0px rgba(0, 0, 0, 0.34), 
+                            -2px 1px 10px 0px rgba(0, 0, 0, 0.39), 
                             0px 4px 6px 0px rgba(0, 17, 24, 0.30)`,
       },
       fontFamily: {

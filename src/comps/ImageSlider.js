@@ -14,7 +14,7 @@ import cool4 from "../Images/set_image_slider/garden_cooler.webp"
 
 const ImageSlider = (props) => {
 
-  const [forDot, setForDot] = useState(69);
+  const [forDot, setForDot] = useState(70);
 
   // useEffect(() => {
   //   if (forDot < 0){

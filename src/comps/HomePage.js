@@ -16,6 +16,7 @@ import featureImg from "../Images/aboutusimages/4a76f14900cc5759219c030a8b30edbd
 import marbleBg from "../Images/f3d6a187ca8216e6c96f1fdf56225dcd.png"
 import reviewBg from "../Images/image 9.png"
 import face1  from "../Images/face1.jpeg"
+import gabi from "../Images/gabi.png"
 
 import { ContentAboutUs } from "./AboutUs";
 import { ContentAboutUssection2 } from "./AboutUs";
@@ -26,12 +27,12 @@ import { useState } from "react";
 function ReviewCard(params) {
   
   return (
-    <div className=" w-[360px] h-[460px] p-8 flex flex-col items-center justify-between text-white rounded-3xl bg-[#333333] " >
-      <div className=" w-32 h-32 rounded-3xl overflow-clip " >
-        <img src={ face1 } className="  " />
+    <div className=" w-[270px] lg:w-[360px] h-[380px] lg:h-[460px] p-8 flex flex-col items-center justify-between text-white rounded-3xl bg-[#333333] " >
+      <div className=" w-28 lg:w-32 h-28 lg:h-32 rounded-3xl overflow-clip " >
+        <img src={ params?.pfp } className="  " />
       </div>
-      <div className=" text-4xl font-medium text-center " >Rajjo Pal Kaur</div>
-      <div className=" text-xl font-thin text-center " >Lorem ipsum dolor sit amet, consectetur adipiscing elit. A fringilla at gravida justo, felis risus ullamcorper augue tempus. Nam hac.</div>
+      <div className=" text-2xl lg:text-4xl font-medium text-center " >{params?.name}</div>
+      <div className=" lg:text-xl font-thin text-center " >Lorem ipsum dolor sit amet, consectetur adipiscing elit. A fringilla at gravida justo, felis risus ullamcorper augue tempus. Nam hac.</div>
       <div className=" flex flex-row gap-2 " >
         <img src={star} />
         <img src={star} />
@@ -61,7 +62,7 @@ function ContentMobView(params) {
 
 function CoolProductsCard(params) {
   return (
-    <div className=" relative w-[360px] h-[490px] rounded-xl flex flex-col items-center border border-gion-teal ">
+    <div className=" relative w-[320px] h-[490px] rounded-xl flex flex-col items-center border border-gion-teal ">
       <div className=" absolute m-4 p-2 top-0 right-0 rounded-full hover:bg-neutral-100 cursor-pointer ">
         <img src={heart} className="  " />
       </div>
@@ -93,13 +94,22 @@ function HomePage(params) {
     { img: collectImg1 },
     { img: collectImg2 },
   ];
+  const reviews = [
+    {name: "Rajjo Kaur", pfp: face1},
+    {name: "Rajjo Kaur", pfp: face1},
+    {name: "Rajjo Kaur", pfp: face1},
+    {name: "Rajjo Kaur", pfp: face1},
+    {name: "Rajjo Kaur", pfp: face1},
+    {name: "Rajjo Kaur", pfp: face1},
+    {name: "Rajjo Kaur", pfp: face1},
+  ]
 
   return (
-    <div className=" w-screen h-full flex flex-col gap-10 items-center overflow-clip ">
+    <div className=" w-screen h-full flex flex-col gap-2 lg:gap-10 items-center overflow-clip ">
       {window?.innerWidth < 1024 ? (
         <ContentMobView />
       ) : (
-        <div className=" mt-10 w-full ">
+        <div className=" w-full ">
           <Content />
         </div>
       )}
@@ -112,8 +122,8 @@ function HomePage(params) {
         //   backgroundImage: `url(${ marbleBg })`
         // }}
       >
-        <div className=" absolute -mt-28 w-full h-full opacity-20 overflow-clip -z-10 " >
-          <img src={marbleBg} className=" w-full object-cover " />
+        <div className=" absolute inset-x-0 -mt-28 w-full h-full opacity-20 overflow-clip -z-10 " >
+          <img src={marbleBg} className=" h-full lg:w-full object-cover " />
         </div>
         <div className="  flex flex-row justify-center ">
           <div
@@ -126,10 +136,10 @@ function HomePage(params) {
         <div className=" relative w-screen my-3 overflow-hidden " >
           {window?.innerWidth < 1024 && (
             <div className=" absolute inset-y-0 w-screen h-full flex flex-row justify-between items-center z-20 ">
-              <div>
+              <div onClick={() => {setCoolPrdInd(coolPrdInd-1)}} >
                 <img src={left} />
               </div>
-              <div>
+              <div onClick={() => {setCoolPrdInd(coolPrdInd+1)}} >
                 <img src={right} />
               </div>
             </div>
@@ -167,12 +177,20 @@ function HomePage(params) {
       <ContentAboutUs />
       {/**---------------------------------------------------------------------- */}
       {true && (
-        <div className=" my-16 w-full lg:h-[80vh] flex flex-col gap-8 items-center ">
-          <div className=" text-6xl font-semibold font-urbanist text-gion-teal " >
+        <div className=" my-8 lg:my-16 w-full lg:h-[80vh] flex flex-col gap-8 items-center ">
+          <div className=" text-5xl lg:text-6xl font-semibold font-urbanist text-gion-teal " >
             Key Benefits
           </div>
-          <div className=" my-4 mx-auto w-[85vw] lg:w-[75vw] h-full flex flex-row items-center gap-36 ">
-            <div className=" w-[55%] " >
+          <div className=" my-4 mx-auto w-[85vw] lg:w-[75vw] h-full flex flex-col lg:flex-row items-center gap-8 lg:gap-36 ">
+          {window?.innerWidth < 1024 && (
+              <div className=" hover:scale-105 w-[50vw] transition-all duration-500 rounded-3xl shadow-custom-shadow overflow-clip ">
+                <img
+                  src={collectImg3}
+                  className=" h-full object-cover hover:scale-105 transition-all duration-500 cursor-pointer "
+                />
+              </div>
+            )}
+            <div className=" w-full lg:w-[55%] " >
               <img src={featureImg} />
             </div>
             {window?.innerWidth > 1024 && (
@@ -188,17 +206,43 @@ function HomePage(params) {
         </div>
       )}
 
-      <div className=" w-full h-[80vh] flex flex-col gap-20 items-center " >
-        <div className=" absolute w-full overflow-clip -z-10 " >
-          <img src={reviewBg} className=" object-cover w-full " />
+      <div className=" relative w-full h-[60vh] lg:h-[80vh] flex flex-col gap-6 lg:gap-20 items-center " >
+        <div className=" absolute inset-0 h-full lg:w-full overflow-clip -z-10 " >
+          <img src={reviewBg} className=" object-cover h-full lg:w-full " />
         </div>
-        <div className=" pt-10 text-6xl text-gion-teal font-medium font-urbanist " >HERE ARE SOME CLIENT FEEDBACKS</div>
+        <div className=" pt-10 text-xl lg:text-6xl text-gion-teal font-semibold lg:font-medium font-urbanist " >HERE ARE SOME CLIENT FEEDBACKS</div>
         {/** use ma[ instead] */}
-        <div className=" relative flex flex-row gap-8 [mask-image:linear-gradient(to_right,transparent,white,transparent)] " >
+        { window?.innerWidth > 1024 ? <div className=" relative flex flex-row gap-8 [mask-image:linear-gradient(to_right,transparent,white,transparent)] " >
+          {
+            reviews?.map((each, ind) => {
+              return (
+                <ReviewCard pfp={each?.pfp} name={each?.name} />
+              )
+            })
+          }
+        </div> : <div className=" relative flex flex-row gap-8 " >
           <ReviewCard />
-          <ReviewCard />
-          <ReviewCard />
-          <ReviewCard />
+        </div>}
+      </div>
+
+      <div className=" my-6 lg:my-0 px-4 lg:px-0 w-full h-[65vh] lg:h-[60vh] flex flex-col lg:flex-row gap-8 lg:gap-20 items-center lg:justify-center " >
+        <div className=" relative w-full lg:w-[35%] -z-30 " >
+          <img src={gabi} />
+        </div>
+        <div className=" relative lg:mx-0 w-full lg:w-[40%] " >
+          <div className=" py-6 lg:py-8 px-3 lg:px-12 w-full h-[30vh] lg:h-[35vh] flex flex-col items-center justify-between text-center rounded-[32px] font-urbanist text-white bg-gion-teal  " >
+            <div className=" text-3xl lg:text-6xl font-semibold " >GOT A BULK INQUIRY?</div>
+            <div className=" text-xs lg:text-lg " >
+              We have more than a decade of manufacturing experience, delivering 
+              high-quality air coolers with cutting-edge technology. Let’s discuss 
+              your needs!
+            </div>
+            <div className=" h-[1px] w-[85%] bg-white " />
+            <div className=" text-xs lg:text-lg ">Fill out the form below, and we’ll get back to you ASAP!</div>
+            <Gbutton label="Get a Quote" txtColor={" text-gion-teal "} color={ " bg-white " } />
+          </div>
+          <div className=" relative -mt-4 lg:-mt-12 ml-12 lg:ml-32 w-14 lg:w-28 h-8 lg:h-16 bg-gion-teal rounded-xl shadow-custom-shadow -rotate-[35deg] -z-10 " > </div>
+          <div className=" absolute inset-0 w-full h-[30vh] lg:h-[35vh] rounded-[32px] shadow-custom-shadow -z-20 " ></div>
         </div>
       </div>
 
