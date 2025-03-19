@@ -40,10 +40,10 @@ function Nav(params) {
   return (
     <div className="fixed w-full z-[40] ">
       <div
-        className={` my-4 mx-4 lg:mx-32 h-[${navH}px] rounded-full bg-[#2C69751A] border border-[#DEEFFF] transition-all duration-700 `}
+        className={` my-4 mx-4 sm:mx-8 2xl:mx-32 h-[${navH}px] rounded-full bg-[#2C69751A] border border-[#DEEFFF] transition-all duration-700 `}
       >
         <div
-          className={` relative px-[30px] lg:px-0 w-full h-[${navH}px] max-h-[113px] flex flex-row lg:gap-32 items-center justify-between `}
+          className={` relative px-[30px] lg:px-0 w-full h-[${navH}px] max-h-[113px] flex flex-row lg:gap-8 2xl:gap-32 items-center justify-between `}
         >
           <div
             className={` absolute w-full inset-x-0 h-full max-h-[113px] backdrop-blur-md rounded-full -z-10 `}
@@ -51,7 +51,7 @@ function Nav(params) {
           <Link to="/">
             <img
               src={logo}
-              className=" lg:ml-[135px] w-[60px] lg:w-[130px] cursor-pointer "
+              className=" lg:ml-[80px] 2xl:ml-[135px] w-[60px] lg:w-[130px] cursor-pointer "
             />
           </Link>
           {window?.innerWidth > 1024 && (
@@ -94,7 +94,7 @@ function Nav(params) {
           )}
 
           {window?.innerWidth > 1024 ? (
-            <div className=" mr-10 flex flex-row flex-shrink-0 gap-[2vw] items-center ">
+            <div className=" mr-4 lg:mr-10 flex flex-row flex-shrink-0 gap-[2vw] items-center ">
               <div className=" flex flex-row gap-2">
                 <div>
                   <img src={facebookico} className=" w-10 " />
