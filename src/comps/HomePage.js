@@ -91,8 +91,7 @@ function CoolProductsCard(params) {
 }
 
 function HomePage(params) {
-
-  const reviewsWidth = 1150
+  const reviewsWidth = 1150;
 
   const [coolPrdInd, setCoolPrdInd] = useState(34);
   const [reviewShift, setReviewShift] = useState(0);
@@ -108,20 +107,18 @@ function HomePage(params) {
     { name: "Rajjo Kaur3", pfp: face1 },
     { name: "Rajjo Kaur4", pfp: face1 },
     { name: "Rajjo Kaur5", pfp: face1 },
-    {name: "Rajjo Kaur6", pfp: face1},
-    {name: "Rajjo Kaur7", pfp: face1},
+    { name: "Rajjo Kaur6", pfp: face1 },
+    { name: "Rajjo Kaur7", pfp: face1 },
   ];
 
   function handleRShift(left) {
+    console?.log(reviewShift);
 
-    console?.log(reviewShift)
-
-    if (left && reviewShift ) {
+    if (left && reviewShift) {
       setReviewShift(reviewShift - 392);
-    } else if ( !left && reviewShift <= reviewsWidth ) {
+    } else if (!left && reviewShift <= reviewsWidth) {
       setReviewShift(reviewShift + 392);
     }
-    
   }
 
   return (
@@ -242,12 +239,20 @@ function HomePage(params) {
           HERE ARE SOME CLIENT FEEDBACKS
         </div>
         {/** use ma[ instead] */}
-        <div className=" absolute px-32 w-full h-full flex flex-row items-center justify-between " >
+        <div className=" absolute px-32 w-full h-full flex flex-row items-center justify-between ">
           <div>
-            <img src={ left } className=" cursor-pointer " onClick={() => handleRShift(true)} />
+            <img
+              src={left}
+              className=" cursor-pointer "
+              onClick={() => handleRShift(true)}
+            />
           </div>
           <div>
-            <img src={ right } className=" cursor-pointer " onClick={() => handleRShift(false)} />
+            <img
+              src={right}
+              className=" cursor-pointer "
+              onClick={() => handleRShift(false)}
+            />
           </div>
         </div>
         {window?.innerWidth > 1024 ? (
@@ -258,10 +263,16 @@ function HomePage(params) {
                 "linear-gradient(to right, transparent 0%, white 25%, white 75%, transparent 100%)",
             }}
           >
-            {  <div className={` -ml-[${reviewShift}px] w-full flex flex-row gap-8 transition-all duration-700 `} >
-            {reviews?.map((each, ind) => {
-              return <ReviewCard pfp={each?.pfp} name={each?.name} />;
-            })}</div>}
+            {
+              <div
+                className={` w-full flex flex-row gap-8 transition-all duration-700 `}
+                style={{ marginLeft: `-${reviewShift}px` }}
+              >
+                {reviews?.map((each, ind) => {
+                  return <ReviewCard pfp={each?.pfp} name={each?.name} />;
+                })}
+              </div>
+            }
           </div>
         ) : (
           <div className=" relative flex flex-row gap-8 ">
