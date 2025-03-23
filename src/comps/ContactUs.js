@@ -2,7 +2,7 @@ import Gbutton from "./utilcomps/Gbutton"
 
 function ContactUs(params) {
   return (
-    <div className=" pb- bg-[#EBF4FF] ">
+    <div className=" pb-32 sm:pb-0 bg-[#EBF4FF] ">
       <div className={` ${ window?.innerWidth < 1024 ? ` pt-16 ` : `` } lg:p-32 flex flex-col gap-8 lg:gap-0 lg:flex-row items-center lg:justify-between `}>
         <div className=" w-[80%] lg:w-[50%] flex flex-col gap-1 lg:gap-6 items-center lg:items-start text-center lg:text-start ">
           <div className=" py-2 lg:py-0 flex flex-row text-4xl lg:text-8xl text-nowrap ">
@@ -33,7 +33,10 @@ function ContactUs(params) {
             <div className=" px-2 text-xs lg:text-2xl " >Message:</div>
             <textarea className=" px-3 py-1 h-[120px] w-full lg:w-[85%] text-xs lg:text-4xl rounded-[20px] border border-gion-teal bg-[#EBF4FF] " />
           </div>
-          <Gbutton label="Submit" />
+          <Gbutton label="Submit" 
+            w={window?.innerWidth < 1024 ? ` w-[250px] ` : false}
+            h={window?.innerWidth < 1024 ? ` h-[46px] ` : false}
+            txt={window?.innerWidth < 1024 ? ` text-lg ` : false} />
         </div>
       </div>
     </div>

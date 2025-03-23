@@ -91,7 +91,7 @@ function CoolProductsCard(params) {
 }
 
 function HomePage(params) {
-  const reviewsWidth = 1150;
+  const reviewsWidth = window?.innerWidth < 1024 ? 1510 : 1150;
 
   const [coolPrdInd, setCoolPrdInd] = useState(34);
   const [reviewShift, setReviewShift] = useState(0);
@@ -112,12 +112,11 @@ function HomePage(params) {
   ];
 
   function handleRShift(left) {
-    console?.log(reviewShift);
 
     if (left && reviewShift) {
-      setReviewShift(reviewShift - 392);
+      window?.innerWidth < 1024 ? setReviewShift(reviewShift - 302) : setReviewShift(reviewShift - 392);
     } else if (!left && reviewShift <= reviewsWidth) {
-      setReviewShift(reviewShift + 392);
+      window?.innerWidth < 1024 ? setReviewShift(reviewShift + 302) : setReviewShift(reviewShift + 392);
     }
   }
 
@@ -227,7 +226,10 @@ function HomePage(params) {
               </div>
             )}
           </div>
-          <Gbutton label={" VIEW ALL PRODUCTS "} w={` w-80 `} />
+          <Gbutton label={" VIEW ALL PRODUCTS "} 
+            w={window?.innerWidth < 1024 ? ` w-[250px] ` : ` w-80 `}
+            h={window?.innerWidth < 1024 ? ` h-[46px] ` : false}
+            txt={window?.innerWidth < 1024 ? ` text-lg ` : false} />
         </div>
       )}
 
@@ -239,7 +241,7 @@ function HomePage(params) {
           HERE ARE SOME CLIENT FEEDBACKS
         </div>
         {/** use ma[ instead] */}
-        <div className=" absolute px-32 w-full h-full flex flex-row items-center justify-between ">
+        <div className=" absolute px-3 sm:px-32 w-full h-full flex flex-row items-center justify-between z-10 ">
           <div>
             <img
               src={left}
@@ -255,9 +257,9 @@ function HomePage(params) {
             />
           </div>
         </div>
-        {window?.innerWidth > 1024 ? (
+        {true ? (
           <div
-            className=" relative w-[80vw] "
+            className=" relative w-screen sm:w-[80vw] "
             style={{
               maskImage:
                 "linear-gradient(to right, transparent 0%, white 25%, white 75%, transparent 100%)",
@@ -265,7 +267,7 @@ function HomePage(params) {
           >
             {
               <div
-                className={` w-full flex flex-row gap-8 transition-all duration-700 `}
+                className={` w-full px-12 flex flex-row gap-8 transition-all duration-700 `}
                 style={{ marginLeft: `-${reviewShift}px` }}
               >
                 {reviews?.map((each, ind) => {

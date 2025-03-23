@@ -14,9 +14,9 @@ function Footer(params) {
 
   return (
     <div
-      className={` ${
+      className={`  ${
         window?.innerWidth < 1024 ? "w-screen flex flex-col items-center " : ""
-      } relative lg:w-full ${ window?.innerWidth < 400 ? "h-[170vh]" : "h-[120vh]" } lg:h-[53vh] bg-gion-teal `}
+      } relative lg:w-full ${ window?.innerWidth < 400 ? "h-[125vh]" : "h-[120vh]" } lg:h-[53vh] bg-gion-teal `}
     >
       {location && (
         <div
@@ -51,7 +51,7 @@ function Footer(params) {
         className={` absolute mt-48 lg:m-10 lg:right-[10vw] flex flex-col lg:flex-row gap-16 text-2xl text-center lg:text-start font-[Poppins] text-[#FFFFFF] `}
       >
         <div className=" flex flex-col gap-4 ">
-          <div className=" text-4xl underline font-[Newsreader] font-semibold ">
+          <div className=" text-4xl font-[Newsreader] font-semibold ">
             Quick Links
           </div>
           <Link to="/">Home</Link>
@@ -60,7 +60,7 @@ function Footer(params) {
           <Link to="/catalogue">Catalogue</Link>
         </div>
         <div className=" flex flex-col gap-4 ">
-          <div className=" text-4xl underline font-[Newsreader] font-semibold ">
+          <div className=" text-4xl font-[Newsreader] font-semibold ">
             Our Products
           </div>
           <Link to="/products">Air Cooler</Link>
@@ -68,25 +68,25 @@ function Footer(params) {
           <div>Water Geyser</div>
         </div>
         <div className=" px-4 w-screen lg:w-96 flex flex-col items-center gap-4 ">
-          <div className=" text-4xl underline font-[Newsreader] font-semibold ">
+          <div className=" text-4xl font-[Newsreader] font-semibold ">
             Contact Us
           </div>
-          <div className=" w-full flex flex-row gap-3 justify-start items-center ">
+          <div className=" pr-[24px] sm:pr-0 w-full flex flex-row gap-3 justify-center sm:justify-start items-center ">
             <div className=" w-[10vw] lg:w-10 flex flex-shrink-0 ">
               {" "}
               <img src={locico} className=" w-[24px] " />{" "}
             </div>
-            <div className=" flex text-start text-wrap ">
+            <div className=" flex sm:text-start text-wrap ">
               DEOGUN INDUSTRIES, Khewat No.458/429, KhatoniNo.473,
               Village-Jakhoda, Jhajjar, Bahadurgarh,
             </div>
           </div>
-          <div className=" w-full flex flex-row gap-3 justify-start items-center ">
+          <div className=" pr-[24px] sm:pr-0 w-full flex flex-row gap-3 justify-center sm:justify-start items-center ">
             <div className="  w-[10vw] lg:w-10 flex flex-shrink-0 ">
               <img src={mailico} className=" w-[24px] " />
             </div>
-            <div className=" flex  text-start text-wrap ">
-              deogunindustries@gmail.com
+            <div className=" flex sm:text-start text-wrap ">
+              { window?.innerWidth < 1024 ? "deogunindustries@gm ail.com" : "deogunindustries@gmail.com" }
             </div>
           </div>
           <div className=" mt-6 flex lg:hidden flex-row gap-6 bottom-0 ">
