@@ -1,10 +1,10 @@
 import { Link, Links, useLocation } from "react-router-dom";
 import gionLogo from "../../Images/logo/gionlogo.png";
 
-import facebookico from "../../Images/icons/Facebook.svg";
-import instaico from "../../Images/icons/Instagram.svg";
-import twitterico from "../../Images/icons/Twitter.svg";
-import linkedinico from "../../Images/icons/LinkedIn.svg";
+import facebookico from "../../Images/icons/Facebookw.svg";
+import instaico from "../../Images/icons/Instagramw.svg";
+import twitterico from "../../Images/icons/Twitterw.svg";
+import linkedinico from "../../Images/icons/LinkedInw.svg";
 
 import locico from "../../Images/icons/loc.svg";
 import mailico from "../../Images/icons/mail.svg";
@@ -23,7 +23,7 @@ function Footer(params) {
           className={` w-full h-[16vh] rounded-b-[200px] ${
             window.location.pathname == "/products"
               ? `bg-white`
-              : `bg-[#EBF4FF]`
+              : `bg-gion-powder-blue`
           } `}
           style={{
             clipPath: "",
@@ -34,16 +34,16 @@ function Footer(params) {
         <img src={gionLogo} className="  w-[60vw] lg:w-[18vw] " />
         <div className=" absolute hidden h-full pt-64 lg:flex flex-row gap-6 items-center  ">
           <div>
-            <img src={facebookico} className=" w-16 rounded-2xl bg-white " />
+            <img src={facebookico} className=" w-16 rounded-2xl" />
           </div>
           <div>
-            <img src={instaico} className=" w-16 rounded-2xl bg-white " />
+            <img src={instaico} className=" w-16 rounded-2xl" />
           </div>
           <div>
-            <img src={twitterico} className=" w-16 rounded-2xl bg-white " />
+            <img src={twitterico} className=" w-16 rounded-2xl" />
           </div>
           <div>
-            <img src={linkedinico} className=" w-16 rounded-2xl bg-white " />
+            <img src={linkedinico} className=" w-16 rounded-2xl" />
           </div>
         </div>
       </div>

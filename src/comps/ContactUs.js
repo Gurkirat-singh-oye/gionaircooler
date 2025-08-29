@@ -2,7 +2,7 @@ import Gbutton from "./utilcomps/Gbutton"
 
 function ContactUs(params) {
   return (
-    <div className=" pb-32 sm:pb-0 bg-[#EBF4FF] ">
+    <div className=" pb-32 sm:pb-0 bg-gion-powder-blue ">
       <div className={` ${ window?.innerWidth < 1024 ? ` pt-16 ` : `` } lg:p-32 flex flex-col gap-8 lg:gap-0 lg:flex-row items-center lg:justify-between `}>
         <div className=" w-[80%] lg:w-[50%] flex flex-col gap-1 lg:gap-6 items-center lg:items-start text-center lg:text-start ">
           <div className=" py-2 lg:py-0 flex flex-row text-4xl lg:text-8xl text-nowrap ">

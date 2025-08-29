@@ -102,13 +102,13 @@ function HomePage(params) {
     { img: collectImg2 },
   ];
   const reviews = [
-    { name: "Rajjo Kaur1", pfp: face1 },
-    { name: "Rajjo Kaur2", pfp: face1 },
-    { name: "Rajjo Kaur3", pfp: face1 },
-    { name: "Rajjo Kaur4", pfp: face1 },
-    { name: "Rajjo Kaur5", pfp: face1 },
-    { name: "Rajjo Kaur6", pfp: face1 },
-    { name: "Rajjo Kaur7", pfp: face1 },
+    { name: "Esther Howard", pfp: face1 },
+    { name: "Tajinder singh phagware vaala", pfp: face1 },
+    { name: "Onkarpreet Kaur", pfp: face1 },
+    { name: "Awesomejyot Singh", pfp: face1 },
+    { name: "King Kong Singh", pfp: face1 },
+    { name: "Bruce pal Kaur", pfp: face1 },
+    { name: "Amit shah", pfp: face1 },
   ];
 
   function handleRShift(left) {
@@ -142,8 +142,9 @@ function HomePage(params) {
           <img src={marbleBg} className=" h-full lg:w-full object-cover " />
         </div>
         <div className="  flex flex-row justify-center ">
+          {/* text-[#6C757D] */}
           <div
-            className={` text-[30px] lg:text-[80px] text-center text-[#6C757D] font-doodle `}
+            className={` text-[30px] lg:text-[80px] text-center text-gion-teal font-doodle `}
           >
             OUR SUPERCOOL PRODUCTS!
           </div>
@@ -201,11 +202,11 @@ function HomePage(params) {
       <ContentAboutUs />
       {/**---------------------------------------------------------------------- */}
       {true && (
-        <div className=" my-8 lg:my-16 w-full lg:h-[80vh] flex flex-col gap-8 items-center ">
+        <div className=" my-8 lg:my-16 w-full lg:h-[70vh] flex flex-col gap-8 items-center ">
           <div className=" text-5xl lg:text-6xl font-semibold font-urbanist text-gion-teal ">
             Key Benefits
           </div>
-          <div className=" my-4 mx-auto w-[85vw] lg:w-[75vw] h-full flex flex-col lg:flex-row items-center gap-8 lg:gap-36 ">
+          <div className=" my-4 mx-auto w-[85vw] lg:w-[75vw] h-full flex flex-col lg:flex-row items-center gap-8 lg:gap-28 ">
             {window?.innerWidth < 1024 && (
               <div className=" hover:scale-105 w-[50vw] transition-all duration-500 rounded-3xl shadow-custom-shadow overflow-clip ">
                 <img
@@ -214,14 +215,14 @@ function HomePage(params) {
                 />
               </div>
             )}
-            <div className=" w-full lg:w-[55%] ">
+            <div className=" ml-10 w-full lg:w-[55%] ">
               <img src={featureImg} />
             </div>
             {window?.innerWidth > 1024 && (
-              <div className=" hover:scale-105 w-[25%] transition-all duration-500 rounded-3xl shadow-custom-shadow overflow-clip ">
+              <div className=" hover:scale-105 transition-all duration-500 rounded-[30px] shadow-custom-shadow overflow-clip ">
                 <img
                   src={collectImg3}
-                  className=" h-full object-cover hover:scale-105 transition-all duration-500 cursor-pointer "
+                  className=" h-full max-w-[360px] object-cover hover:scale-105 transition-all duration-500 cursor-pointer "
                 />
               </div>
             )}
@@ -245,14 +246,14 @@ function HomePage(params) {
           <div>
             <img
               src={left}
-              className=" cursor-pointer "
+              className=" lg:mt-10 lg:w-32 cursor-pointer "
               onClick={() => handleRShift(true)}
             />
           </div>
           <div>
             <img
               src={right}
-              className=" cursor-pointer "
+              className=" lg:mt-10 lg:w-32 cursor-pointer "
               onClick={() => handleRShift(false)}
             />
           </div>
@@ -297,7 +298,7 @@ function HomePage(params) {
               high-quality air coolers with cutting-edge technology. Let’s
               discuss your needs!
             </div>
-            <div className=" h-[1px] w-[85%] bg-white " />
+            <div className=" h-px w-[85%] bg-white " />
             <div className=" text-xs lg:text-lg ">
               Fill out the form below, and we’ll get back to you ASAP!
             </div>
@@ -305,6 +306,7 @@ function HomePage(params) {
               label="Get a Quote"
               txtColor={" text-gion-teal "}
               color={" bg-white "}
+              w={" w-[180px] "}
             />
           </div>
           <div className=" relative -mt-4 lg:-mt-12 ml-12 lg:ml-32 w-14 lg:w-28 h-8 lg:h-16 bg-gion-teal rounded-xl shadow-custom-shadow -rotate-[35deg] -z-10 ">

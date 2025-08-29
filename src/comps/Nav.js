@@ -46,12 +46,12 @@ function Nav(params) {
           className={` relative px-[30px] lg:px-0 w-full h-[${navH}px] max-h-[113px] flex flex-row lg:gap-8 2xl:gap-32 items-center justify-between `}
         >
           <div
-            className={` absolute w-full inset-x-0 h-full max-h-[113px] backdrop-blur-md rounded-full -z-10 `}
+            className={` absolute w-full inset-x-0 h-full max-h-[88px] backdrop-blur-md bg-white bg-opacity-80 rounded-full -z-10 `}
           />
           <Link to="/">
             <img
               src={logo}
-              className=" lg:ml-[80px] 2xl:ml-[135px] w-[60px] lg:w-[130px] cursor-pointer "
+              className=" lg:ml-[80px] 2xl:ml-[135px] w-[60px] lg:w-[94px] cursor-pointer "
             />
           </Link>
           {window?.innerWidth > 1024 && (

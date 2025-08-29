@@ -21,21 +21,21 @@ import { Link } from "react-router-dom";
 function ContentAboutUs(params) {
   return (
     <div
-      className={` relative ${
-        window?.innerWidth < 1024 ? ` w-[300px] ` : ` w-[1500px] h-[700px] `
+      className={` my-10 relative ${
+        window?.innerWidth < 1024 ? ` w-[300px] ` : ` w-[1340px] h-[600px] `
       } flex ${
-        window?.innerWidth < 1024 ? ` flex-col gap-8 ` : ` flex-row gap-28 `
+        window?.innerWidth < 1024 ? ` flex-col gap-8 ` : ` flex-row gap-24 `
       } `}
     >
-      <div className=" hidden lg:block absolute -left-[370px] top-72 h-20 text-nowrap text-5xl font-semibold tracking-[0.6em] opacity-15 -rotate-90 " > A B O U T U S </div>
+      <div className=" hidden lg:block absolute -left-[300px] top-64 h-20 text-nowrap text-[44px] font-semibold tracking-[0.4em] opacity-15 -rotate-90 " > A B O U T U S </div>
       <div
         className={` ${
           window?.innerWidth < 1024 ? ` h-[400px] ` : `  `
-        } min-w-[40%] hover:scale-105 transition-all duration-500 rounded-lg shadow-custom-shadow overflow-clip `}
+        } min-w-[44%] hover:scale-[1.01] transition-all duration-500 rounded-2xl shadow-custom-shadow overflow-clip `}
       >
         <img
           src={img1}
-          className=" h-full object-cover hover:scale-105 transition-all duration-500 cursor-pointer "
+          className=" h-full w-full object-cover hover:scale-[1.02] transition-all duration-500 cursor-pointer "
         />
       </div>
       <div
@@ -72,7 +72,7 @@ function ContentAboutUs(params) {
           performance, and reliability. Experience the cooling technology that
           makes us a leader in the industry.
         </div>
-        <Link to="/products" className=" text-gion-seafoam-green text-xs lg:text-lg text-center ">
+        <Link to="/products" className=" text-gion-seafoam-green text-xs lg:text-xl font-semibold text-center ">
           {" "}
           Explore Gion Air Cooler...{" "}
         </Link>
@@ -85,8 +85,8 @@ function ContentAboutUssection2(params) {
   return (
     <div className=" py-10 lg:py-2 w-full lg:h-[70vh] flex flex-col justify-between text-center ">
       <div className=" pt-6 w-full min-h-[36%] flex flex-col gap-10 bg-[#F2F3F8] ">
-        <div className=" flex flex-col font-extralight text-center text-2xl lg:text-5xl text-gion-teal ">
-          BEST AIRCOOLER BRAND IN INDIA
+        <div className=" flex flex-col font-thin text-center text-2xl lg:text-5xl text-gion-teal ">
+          BEST AIR COOLER BRAND IN INDIA
         </div>
         <div className=" w-full flex flex-col lg:flex-row gap-8 lg:gap-64 justify-center items-center text-xs lg:text-base text-nowrap ">
           <div className=" w-[65vw] lg:w-[25vw] h-full flex flex-row justify-between items-center text-center ">
