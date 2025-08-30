@@ -40,13 +40,13 @@ function Nav(params) {
   return (
     <div className="fixed w-full z-[40] ">
       <div
-        className={` my-4 mx-4 sm:mx-8 2xl:mx-32 h-[${navH}px] rounded-full bg-[#2C69751A] border border-[#DEEFFF] transition-all duration-700 `}
+        className={` sm:my-4 sm:mx-8 2xl:mx-32 h-[${navH}px] sm:rounded-full bg-[#2C69751A] border border-[#DEEFFF] transition-all duration-700 `}
       >
         <div
           className={` relative px-[30px] lg:px-0 w-full h-[${navH}px] max-h-[113px] flex flex-row lg:gap-8 2xl:gap-32 items-center justify-between `}
         >
           <div
-            className={` absolute w-full inset-x-0 h-full max-h-[88px] backdrop-blur-md bg-white bg-opacity-80 rounded-full -z-10 `}
+            className={` absolute w-full inset-x-0 h-full max-h-[88px] sm:backdrop-blur-[10px] bg-white sm:bg-opacity-50 sm:rounded-full -z-10 `}
           />
           <Link to="/">
             <img
@@ -62,7 +62,7 @@ function Nav(params) {
                     to={`${NavArr[each]}`}
                     className=" flex flex-col items-center justify-center group"
                     onMouseEnter={() =>
-                      NavArr[each] === "/products" ? setProductsMenu(true) : ""
+                      NavArr[each] === "/products" ? setProductsMenu(false) : ""
                     }
                     onMouseLeave={() =>
                       NavArr[each] === "/products" ? setProductsMenu(false) : ""
@@ -172,8 +172,8 @@ function Nav(params) {
         </div> */}
         <div
           className={` ${
-            brMenu ? "mr-0" : "-mr-[290px]"
-          } fixed top-0 right-0 w-[290px] h-screen bg-gion-teal bg-opacity-30 transition-all duration-500 `}
+            brMenu ? "mr-0" : "-mr-[100vw]"
+          } fixed top-0 right-0 w-[100vw] h-screen bg-gion-powder-blue transition-all duration-500 ease-in-out `}
         >
           <div className=" flex justify-end ">
             <img
@@ -181,6 +181,24 @@ function Nav(params) {
               onClick={() => setBrMenu(false)}
               className=" p-3 w-10 "
             />
+          </div>
+          <div className=" h-full flex flex-col gap-16 items-center text-6xl text-gion-teal font-poppins ">
+            <img src={logo} onClick={() => setBrMenu(false)} />
+            <Link to="/" onClick={() => setBrMenu(false)}>
+              Home
+            </Link>
+            <Link to="/products" onClick={() => setBrMenu(false)}>
+              Products
+            </Link>
+            <Link to="/catalogue" onClick={() => setBrMenu(false)}>
+              Catalogue
+            </Link>
+            <Link to="/contactus" onClick={() => setBrMenu(false)}>
+              Contact Us
+            </Link>
+            <Link to="/aboutus" onClick={() => setBrMenu(false)}>
+              About Us
+            </Link>
           </div>
         </div>
       </div>

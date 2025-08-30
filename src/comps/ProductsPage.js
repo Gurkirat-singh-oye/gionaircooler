@@ -158,7 +158,7 @@ function ProductsPage(params) {
                 {">"}
               </div>
             </div>
-            <div className={` absolute -ml-9 w-[200px] ${ showCat ? ` h-[170px] pt-5 ` : ` h-[0px] ` } flex flex-col gap-3 transition-all duration-700 rounded-b-lg bg-[#0098DA] overflow-clip `} >
+            <div className={` absolute px-4 -ml-9 w-[200px] ${ showCat ? ` h-[170px] pt-5 ` : ` h-[0px] ` } flex flex-col gap-3 transition-all duration-700 rounded-b-lg bg-gion-teal border border-gion-seafoam-green overflow-clip z-30 `} >
               <div onClick={() => selectedSeries == "personal" ? setSelectedSeries("") : setSelectedSeries("personal")}>PERSONAL SERIES</div>
               <div onClick={() => setSelectedSeries("window")}>WINDOWS SERIES</div>
               <div onClick={() => setSelectedSeries("eco")}>ECO SERIES</div>
@@ -301,7 +301,7 @@ function ProductsPage(params) {
             </div>}
           </div>}
 
-          {<div className=" mx-auto w-[1400px] flex flex-row justify-center flex-wrap gap-2 lg:gap-10 ">
+          {<div className=" py-8 lg:mx-auto lg:w-[1400px] w-screen flex flex-row justify-center flex-wrap gap-2 lg:gap-10 ">
             {/** check for if the series filter is applied */}
             {selectedSeries == ""
               ? products.map((each, ind) => {

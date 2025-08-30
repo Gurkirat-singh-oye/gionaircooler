@@ -16,7 +16,7 @@ import featureImg from "../Images/aboutusimages/4a76f14900cc5759219c030a8b30edbd
 import marbleBg from "../Images/f3d6a187ca8216e6c96f1fdf56225dcd.png";
 import reviewBg from "../Images/image 9.png";
 import face1 from "../Images/face1.jpeg";
-import gabi from "../Images/gabi.png";
+import gabi from "../Images/87908019868087fa3c9c8deff39458e345085d41.png";
 
 import CoolProductsCard from "./utilcomps/CoolProductsCard";
 import { ContentAboutUs } from "./AboutUs";
@@ -139,7 +139,7 @@ function HomePage(params) {
         //   backgroundImage: `url(${ marbleBg })`
         // }}
       >
-        <div className=" absolute inset-x-0 -mt-28 w-full h-full opacity-20 overflow-clip -z-10 ">
+        <div className=" absolute inset-x-0 -mt-28 scale-y-[1.03] w-full h-full opacity-20 overflow-clip -z-10 ">
           <img src={marbleBg} className=" h-full lg:w-full object-cover " />
         </div>
         <div className="  flex flex-row justify-center ">
@@ -189,6 +189,7 @@ function HomePage(params) {
         <div className=" flex flex-col lg:flex-row gap-2 justify-between items-center ">
           <Gbutton
             label={"VIEW OUR COLLECTION"}
+            linkTo={"/products"}
             w={window?.innerWidth < 1024 ? ` w-[250px] ` : ` w-[350px] `}
             h={window?.innerWidth < 1024 ? ` h-[46px] ` : false}
             txt={window?.innerWidth < 1024 ? ` text-lg ` : false}
@@ -216,7 +217,7 @@ function HomePage(params) {
                 />
               </div>
             )}
-            <div className=" ml-10 w-full lg:w-[55%] ">
+            <div className=" lg:ml-10 w-full lg:w-[55%] ">
               <img src={featureImg} />
             </div>
             {window?.innerWidth > 1024 && (

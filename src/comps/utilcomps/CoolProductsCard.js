@@ -8,7 +8,7 @@ import heart from "../../Images/icons/heart.svg";
 
 function CoolProductsCard(params) {
   return (
-    <div className=" relative w-[300px] h-[490px] rounded-[14px] flex flex-col items-center justify-between border border-gion-teal ">
+    <div className=" relative w-[90vw] lg:w-[300px] h-[490px] rounded-[14px] flex flex-col items-center justify-between border border-gion-teal bg-neutral-100 ">
       <div className=" absolute m-4 p-2 top-0 right-0 rounded-full hover:bg-opacity-90 bg-white bg-opacity-45 cursor-pointer ">
         <img src={heart} className="  " />
       </div>
