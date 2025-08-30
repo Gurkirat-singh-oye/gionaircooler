@@ -10,12 +10,12 @@ module.exports = {
         "gion-powder-blue": "#CAEAF0"
       },
       boxShadow: {
-        "custom-shadow": `-87px 49px 51px 0px rgba(0, 0, 0, 0.2), 
-                            -57px 22px 20px 0px rgba(0, 0, 0, 0.06), 
-                            -28px 21px 16px 0px rgba(0, 0, 0, 0.20), 
-                            -12px 10px 15px 0px rgba(0, 0, 0, 0.34), 
-                            -2px 1px 10px 0px rgba(0, 0, 0, 0.39), 
-                            0px 4px 6px 0px rgba(0, 17, 24, 0.30)`,
+        "custom-shadow": `-20px 18px 23px 0px rgba(0, 0, 0, 0.1), 
+                            -18px 15px 20px 0px rgba(0, 0, 0, 0.06), 
+                            -13px 10px 16px 0px rgba(0, 0, 0, 0.20), 
+                            -8px 7px 10px 0px rgba(0, 0, 0, 0.14), 
+                            -2px 1px 10px 0px rgba(0, 0, 0, 0.19), 
+                            0px 4px 6px 0px rgba(0, 17, 24, 0.20)`,
       },
       fontFamily: {
         doodle: ['"Rubik Doodle Shadow"', 'cursive'],

@@ -12,6 +12,8 @@ import cool2 from "../Images/set_image_slider/vint_cooler .webp"
 import cool3 from "../Images/set_image_slider/room_cooler.webp"
 import cool4 from "../Images/set_image_slider/garden_cooler.webp"
 import cool5 from "../Images/set_image_slider/gion.pdf (2).png"
+import cool6 from "../Images/set_image_slider/banner 1.png"
+import cool7 from "../Images/set_image_slider/banner 2 .png"
 
 const ImageSlider = (props) => {
 
@@ -39,17 +41,17 @@ const ImageSlider = (props) => {
     // <div className=" w-full h-[70vh] bg-gion-teal overflow-clip ">
     //   <img src={cool4} className=" h-full lg:w-full object-cover " />
     // </div>,
-    <img src={cool5} className=" relative  h-full lg:w-full object-cover " />,
-    <img src={cool4} className=" top-5 h-full lg:w-full object-cover " />,
-    <img src={cool3} className=" top-5 h-full lg:w-full object-cover " />,
-    <img src={cool2} className=" top-5 h-full lg:w-full object-cover " />,
-    <img src={cool1} className=" top-5 h-full lg:w-full object-cover " />,
+    // <img src={cool5} className=" relative  h-full lg:w-full object-cover " />,
+    <img src={cool6} className=" top-5 h-full lg:w-full object-cover " />,
+    <img src={cool7} className=" top-5 h-full lg:w-full object-cover " />,
+    // <img src={cool2} className=" top-5 h-full lg:w-full object-cover " />,
+    // <img src={cool1} className=" top-5 h-full lg:w-full object-cover " />,
   ]);
 
   return (
     <div>
       <div className="w-full h-[75vh] overflow-hidden ">
-        {imgArr[forDot%5]}
+        {imgArr[forDot%(imgArr.length)]}
       </div>
       <div>
         <div
@@ -66,7 +68,7 @@ const ImageSlider = (props) => {
             {imgArr?.map((each, ind) => {
               return (
                 <>
-                  {forDot%5 == ind ? (
+                  {forDot%(imgArr.length) == ind ? (
                     <div className=" w-[13px] h-[13px] rounded-full bg-gion-teal " />
                   ) : (
                     <div className=" w-[10px] h-[10px] rounded-full bg-neutral-300 " />

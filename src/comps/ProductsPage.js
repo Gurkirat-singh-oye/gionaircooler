@@ -5,6 +5,8 @@ import arrowRight from "../Images/icons/Arrow Right.svg";
 import productimg from "../Images/productimages/f70a8065edf3036598a7f1c63f71aa29.jpeg";
 import { Link } from "react-router-dom";
 
+import CoolProductsCard from "./utilcomps/CoolProductsCard";
+
 import lilliput from "../Images/productimages/lilliput.jpeg";
 import amaze from "../Images/productimages/amaze.jpeg";
 import ftw from "../Images/productimages/GE_512.jpeg";
@@ -157,7 +159,7 @@ function ProductsPage(params) {
               </div>
             </div>
             <div className={` absolute -ml-9 w-[200px] ${ showCat ? ` h-[170px] pt-5 ` : ` h-[0px] ` } flex flex-col gap-3 transition-all duration-700 rounded-b-lg bg-[#0098DA] overflow-clip `} >
-              <div onClick={() => setSelectedSeries("personal")}>PERSONAL SERIES</div>
+              <div onClick={() => selectedSeries == "personal" ? setSelectedSeries("") : setSelectedSeries("personal")}>PERSONAL SERIES</div>
               <div onClick={() => setSelectedSeries("window")}>WINDOWS SERIES</div>
               <div onClick={() => setSelectedSeries("eco")}>ECO SERIES</div>
               <div onClick={() => setSelectedSeries("premium")}>PREMIUM SERIES</div>
@@ -167,7 +169,7 @@ function ProductsPage(params) {
           <div className=" flex flex-row gap-16 justify-center items-center text-xl font-black ">
             <div
               className=" flex flex-col items-start cursor-pointer group"
-              onClick={() => setSelectedSeries("personal")}
+              onClick={() => selectedSeries == "personal" ? setSelectedSeries("") : setSelectedSeries("personal")}
             >
               PERSONAL SERIES{" "}
               <div
@@ -179,7 +181,7 @@ function ProductsPage(params) {
             </div>
             <div
               className=" flex flex-col items-start cursor-pointer group"
-              onClick={() => setSelectedSeries("window")}
+              onClick={() => selectedSeries == "window" ? setSelectedSeries("") : setSelectedSeries("window")}
             >
               WINDOW SERIES{" "}
               <div
@@ -191,7 +193,7 @@ function ProductsPage(params) {
             </div>
             <div
               className=" flex flex-col items-start cursor-pointer group"
-              onClick={() => setSelectedSeries("eco")}
+              onClick={() => selectedSeries == "eco" ? setSelectedSeries("") : setSelectedSeries("eco")}
             >
               ECO SERIES{" "}
               <div
@@ -203,7 +205,7 @@ function ProductsPage(params) {
             </div>
             <div
               className=" flex flex-col items-start cursor-pointer group"
-              onClick={() => setSelectedSeries("premium")}
+              onClick={() => selectedSeries == "premium" ? setSelectedSeries("") : setSelectedSeries("")}
             >
               PREMIUM SERIES{" "}
               <div
@@ -299,7 +301,7 @@ function ProductsPage(params) {
             </div>}
           </div>}
 
-          <div className=" w-screen flex flex-row justify-center flex-wrap gap-2 lg:gap-10 ">
+          {<div className=" mx-auto w-[1400px] flex flex-row justify-center flex-wrap gap-2 lg:gap-10 ">
             {/** check for if the series filter is applied */}
             {selectedSeries == ""
               ? products.map((each, ind) => {
@@ -307,7 +309,7 @@ function ProductsPage(params) {
                     <div>
                       {
                         <div>
-                          <ProductCard
+                          <CoolProductsCard
                             img={each?.img}
                             name={each?.name}
                             price={each?.price}
@@ -322,7 +324,7 @@ function ProductsPage(params) {
                     <>
                       {selectedSeries == each?.series && (
                         <div>
-                          <ProductCard
+                          <CoolProductsCard
                             img={each?.img}
                             name={each?.name}
                             price={each?.price}
@@ -332,7 +334,8 @@ function ProductsPage(params) {
                     </>
                   );
                 })}
-          </div>
+          </div>}
+          {/* <CoolProductsCard /> */}
         </div>
       )}
     </div>

@@ -27,7 +27,7 @@ function ContentAboutUs(params) {
         window?.innerWidth < 1024 ? ` flex-col gap-8 ` : ` flex-row gap-24 `
       } `}
     >
-      <div className=" hidden lg:block absolute -left-[300px] top-64 h-20 text-nowrap text-[44px] font-semibold tracking-[0.4em] opacity-15 -rotate-90 " > A B O U T U S </div>
+      <div className=" hidden lg:block absolute -left-[290px] top-64 h-20 text-nowrap text-[44px] font-black tracking-[0.4em] opacity-15 -rotate-90 " > A B O U T U S </div>
       <div
         className={` ${
           window?.innerWidth < 1024 ? ` h-[400px] ` : `  `
