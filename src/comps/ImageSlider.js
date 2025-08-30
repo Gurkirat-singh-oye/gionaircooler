@@ -14,6 +14,7 @@ import cool4 from "../Images/set_image_slider/garden_cooler.webp"
 import cool5 from "../Images/set_image_slider/gion.pdf (2).png"
 import cool6 from "../Images/set_image_slider/banner 1.png"
 import cool7 from "../Images/set_image_slider/banner 2 .png"
+import mcool1 from "../Images/set_image_slider/0695310551913bd6bee8ccc7d74e861e272e13c8.jpg"
 
 const ImageSlider = (props) => {
 
@@ -25,7 +26,7 @@ const ImageSlider = (props) => {
   //   }
   // }, [forDot])
 
-  const [imgArr, setImgArr] = useState([
+  const [imgArr, setImgArr] = useState( window?.innerWidth > 640 ? [
     // <div className="w-full h-[70vh] bg-gion-teal overflow-hidden ">
     //   <img src={cool5} className=" top-5 h-full lg:w-full object-cover " />
     // </div>,
@@ -46,7 +47,9 @@ const ImageSlider = (props) => {
     <img src={cool7} className=" top-5 h-full lg:w-full object-cover " />,
     // <img src={cool2} className=" top-5 h-full lg:w-full object-cover " />,
     // <img src={cool1} className=" top-5 h-full lg:w-full object-cover " />,
-  ]);
+  ] : [
+    <img src={mcool1} className=" relative top-5 right-2 h-full w-full scale-[1.12] object-cover " />,
+  ] );
 
   return (
     <div>
