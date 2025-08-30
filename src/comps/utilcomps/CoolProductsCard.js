@@ -17,7 +17,7 @@ function CoolProductsCard(params) {
       </div>
       <div className=" pb-5 flex flex-col gap-2 items-center ">
         <div className=" flex flex-row gap-8 text-gion-teal text-[22px] ">
-          <div className=" font-light ">{params?.name}</div>{" "}
+          <div className=" font-light ">{params?.name ? params?.name : "GE-512T"}</div>{" "}
           {/** name to be added with api */}
           <div className=" font-semibold ">{params?.price ? params?.price : 12000 }</div>
         </div>

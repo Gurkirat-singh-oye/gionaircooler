@@ -18,6 +18,7 @@ import reviewBg from "../Images/image 9.png";
 import face1 from "../Images/face1.jpeg";
 import gabi from "../Images/gabi.png";
 
+import CoolProductsCard from "./utilcomps/CoolProductsCard";
 import { ContentAboutUs } from "./AboutUs";
 import { ContentAboutUssection2 } from "./AboutUs";
 import Gbutton from "./utilcomps/Gbutton";
@@ -64,31 +65,31 @@ function ContentMobView(params) {
   );
 }
 
-function CoolProductsCard(params) {
-  return (
-    <div className=" relative w-[320px] h-[490px] rounded-xl flex flex-col items-center border border-gion-teal ">
-      <div className=" absolute m-4 p-2 top-0 right-0 rounded-full hover:bg-neutral-100 cursor-pointer ">
-        <img src={heart} className="  " />
-      </div>
-      <div className=" p-2 h-[75%] overflow-clip ">
-        <img src={params?.image} className=" h-full object-cover rounded-xl " />
-      </div>
-      <div className=" p-4 flex flex-col gap-2 items-center ">
-        <div className=" flex flex-row gap-8 text-gion-teal ">
-          <div className=" font-light ">GE-512T</div>{" "}
-          {/** name to be added with api */}
-          <div className=" font-semibold ">12,000</div>
-        </div>
-        <Gbutton
-          txt={` text-sm lg:text-lg `}
-          h={` h-[30px] lg:h-[40px] `}
-          label={"ENQUIRY NOW"}
-          color={" bg-gion-seafoam-green "}
-        />
-      </div>
-    </div>
-  );
-}
+// function CoolProductsCard(params) {
+//   return (
+//     <div className=" relative w-[320px] h-[490px] rounded-xl flex flex-col items-center border border-gion-teal ">
+//       <div className=" absolute m-4 p-2 top-0 right-0 rounded-full hover:bg-neutral-100 cursor-pointer ">
+//         <img src={heart} className="  " />
+//       </div>
+//       <div className=" p-2 h-[75%] overflow-clip ">
+//         <img src={params?.image} className=" h-full object-cover rounded-xl " />
+//       </div>
+//       <div className=" p-4 flex flex-col gap-2 items-center ">
+//         <div className=" flex flex-row gap-8 text-gion-teal ">
+//           <div className=" font-light ">GE-512T</div>{" "}
+//           {/** name to be added with api */}
+//           <div className=" font-semibold ">12,000</div>
+//         </div>
+//         <Gbutton
+//           txt={` text-sm lg:text-lg `}
+//           h={` h-[30px] lg:h-[40px] `}
+//           label={"ENQUIRY NOW"}
+//           color={" bg-gion-seafoam-green "}
+//         />
+//       </div>
+//     </div>
+//   );
+// }
 
 function HomePage(params) {
   const reviewsWidth = window?.innerWidth < 1024 ? 1510 : 1150;
@@ -177,11 +178,11 @@ function HomePage(params) {
                 return (
                   <>
                     {Math.abs(coolPrdInd) % 4 == ind && (
-                      <CoolProductsCard image={each?.img} />
+                      <CoolProductsCard img={each?.img} />
                     )}
                   </>
                 );
-              } else return <CoolProductsCard image={each?.img} />;
+              } else return <CoolProductsCard img={each?.img} />;
             })}
           </div>
         </div>
@@ -326,4 +327,3 @@ function HomePage(params) {
 }
 
 export default HomePage;
-export { CoolProductsCard }
