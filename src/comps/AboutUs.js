@@ -13,6 +13,7 @@ import bulb from "../Images/icons/bulb.png";
 import qual from "../Images/icons/Quality.png";
 import cash from "../Images/icons/cash.png";
 import flower from "../Images/icons/Save energy.png";
+import abbanner from "../Images/aboutusimages/cf0313c87677119261c3e6a759d55d2ceff1865b.png"
 
 import Gbutton from "./utilcomps/Gbutton";
 import ContactUs from "./ContactUs";
@@ -180,7 +181,17 @@ function ContentAboutUssection2(params) {
 
 function AboutUs(params) {
   return (
-    <div className=" mt-10 lg:mt-32 flex flex-col gap-3 lg:gap-[70px] items-center ">
+    <div className=" mt-10 lg:mt-12 flex flex-col gap-3 lg:gap-[70px] items-center ">
+
+      <div className="  w-screen h-fit flex flex-row justify-center  " >
+        <div className=" w-[80vw] lg:max-w-[62vw] h-[55vh] shadow-custom-shadow rounded-2xl lg:rounded-[44.5px] overflow-clip " >
+
+          <img src={abbanner} className=" relative lg:left-0  h-full lg:w-full object-cover " />
+        </div>
+
+
+      </div>
+
       <ContentAboutUs />
       {/**---------------------------------------------------------------------------- */}
       {true && <ContentAboutUssection2 />}
