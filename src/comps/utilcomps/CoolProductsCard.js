@@ -3,12 +3,19 @@ import Gbutton from "./Gbutton";
 
 import heart from "../../Images/icons/heart.svg";
 
+import { motion } from "framer-motion"; 
+
 
 
 
 function CoolProductsCard(params) {
   return (
-    <div className=" relative w-[90vw] lg:w-[300px] h-[440px] rounded-[14px] flex flex-col items-center justify-between border border-gion-teal bg-neutral-100 ">
+    <motion.div
+      initial={{ opacity: 0, x: -50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+      viewport={{ once: true }}
+      className=" relative w-[90vw] lg:w-[300px] h-[440px] rounded-[14px] flex flex-col items-center justify-between border border-gion-teal bg-neutral-100 ">
       <div className=" absolute m-4 p-2 top-0 right-0 rounded-full hover:bg-opacity-90 bg-white bg-opacity-45 cursor-pointer ">
         <img src={heart} className="  " />
       </div>
@@ -30,7 +37,7 @@ function CoolProductsCard(params) {
           color={" bg-gion-seafoam-green "}
         />
       </div>
-    </div>
+    </motion.div>
   );
 }
 

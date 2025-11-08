@@ -25,8 +25,18 @@ function Nav(params) {
   const [navH, setNavH] = useState(113);
   const [brMenu, setBrMenu] = useState(false);
 
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [showNav, setShowNav] = useState(true);
+
   const location = useLocation();
   // console.log(window.location.pathname
+
+
+  window?.addEventListener("scroll", () => {
+    const scrollY = window?.scrollY;
+    setShowNav(scrollY < lastScrollY);
+    setLastScrollY(scrollY);
+  });
 
   useEffect(() => {
     window?.innerWidth < 1024 && !brMenu ? setNavH(70) : setNavH(113);
@@ -38,15 +48,15 @@ function Nav(params) {
   }, [location]);
 
   return (
-    <div className="fixed w-full z-[40] ">
+    <div className={`fixed w-full delay-200 ease-in-out transition-all duration-500 z-[40] ${ showNav ? `translate-y-0` : `-translate-y-full`} `}>
       <div
-        className={` sm:my-4 sm:mx-8 2xl:mx-32 h-[${navH}px] sm:rounded-full bg-[#2C69751A] border border-[#DEEFFF] transition-all duration-700 `}
+        className={` my-4 mx-2 sm:mx-8 2xl:mx-32 h-[${navH}px] rounded-full bg-[#2C69751A] border border-[#DEEFFF] transition-all duration-700 `}
       >
         <div
           className={` relative px-[30px] lg:px-0 w-full h-[${navH}px] max-h-[113px] flex flex-row lg:gap-8 2xl:gap-32 items-center justify-between `}
         >
           <div
-            className={` absolute w-full inset-x-0 h-full max-h-[88px] sm:backdrop-blur-[10px] bg-white sm:bg-opacity-50 sm:rounded-full -z-10 `}
+            className={` absolute w-full inset-x-0 h-full max-h-[88px] sm:backdrop-blur-[10px] bg-white sm:bg-opacity-50 rounded-full -z-10 `}
           />
           <Link to="/">
             <img
@@ -182,7 +192,7 @@ function Nav(params) {
               className=" p-3 w-10 "
             />
           </div>
-          <div className=" h-full flex flex-col gap-16 items-center text-6xl text-gion-teal font-poppins ">
+          <div className=" h-full flex flex-col gap-12 lg:gap-16 items-center text-6xl text-gion-teal font-poppins ">
             <img src={logo} onClick={() => setBrMenu(false)} />
             <Link to="/" onClick={() => setBrMenu(false)}>
               Home

@@ -16,15 +16,23 @@ import cool6 from "../Images/set_image_slider/banner 1.png"
 import cool7 from "../Images/set_image_slider/banner 2 .png"
 import mcool1 from "../Images/set_image_slider/0695310551913bd6bee8ccc7d74e861e272e13c8.jpg"
 
+import { supabase } from "../supabaseClient"
+import Spinner from "./utilcomps/Spinner";
+
 const ImageSlider = (props) => {
 
   const [forDot, setForDot] = useState(75);
+  const [banners, setBanners] = useState(null)
 
-  // useEffect(() => {
-  //   if (forDot < 0){
-  //     setForDot(4)
-  //   }
-  // }, [forDot])
+  const [spinnerState, setSpinnerState] = useState(false);
+
+  async function fetchBanners () {
+    let { data: imageUrl } = await supabase
+    .from('imageurls')
+    .select('*')
+    return imageUrl
+  }
+
 
   const [imgArr, setImgArr] = useState( window?.innerWidth > 640 ? [
     // <div className="w-full h-[70vh] bg-gion-teal overflow-hidden ">
@@ -44,17 +52,26 @@ const ImageSlider = (props) => {
     // </div>,
     // <img src={cool5} className=" relative  h-full lg:w-full object-cover " />,
     <img src={cool6} className=" top-5 h-full lg:w-full object-cover " />,
-    <img src={cool7} className=" top-5 h-full lg:w-full object-cover " />,
     // <img src={cool2} className=" top-5 h-full lg:w-full object-cover " />,
     // <img src={cool1} className=" top-5 h-full lg:w-full object-cover " />,
   ] : [
     <img src={mcool1} className=" relative top-5 right-2 h-full w-full scale-[1.12] object-cover " />,
   ] );
 
+  useEffect(() => {
+    setSpinnerState(true)
+    fetchBanners().then((data) => {
+      setBanners(data[0]?.url)
+      setImgArr(imgArr.concat(<img src={data[0]?.url} className=" top-5 h-full lg:w-full object-cover " />))
+      setSpinnerState(false)
+      console.log("got the link", data[0]?.url)
+    })
+  }, [])
+
   return (
     <div>
       <div className="w-full h-[75vh] overflow-hidden ">
-        {imgArr[forDot%(imgArr.length)]}
+        { spinnerState ? <Spinner /> : imgArr[forDot%(imgArr.length)]}
       </div>
       <div>
         <div

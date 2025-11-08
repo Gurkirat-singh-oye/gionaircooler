@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import upArrow from "../Images/icons/Vector.png";
 import checkbox from "../Images/icons/checkbox.svg";
 import arrowRight from "../Images/icons/Arrow Right.svg";
@@ -20,6 +20,8 @@ import ssto from "../Images/productimages/ge7721.jpeg";
 import fet from "../Images/productimages/ge518.jpeg";
 import sset from "../Images/productimages/ge7718.jpeg";
 import Gbutton from "./utilcomps/Gbutton";
+
+import { supabase } from "../supabaseClient"
 
 function ProductCard(params) {
   return (
@@ -52,8 +54,26 @@ function ProductCard(params) {
   );
 }
 
+async function fetchProducts() {
+  let { data: products} = await supabase
+    .from('products')
+    .select('*')
+  console.log("products", products);
+  return products;
+}
+
 function ProductsPage(params) {
+
   const [filterColorBox, setFilterColorBox] = useState(false);
+
+  // change var names
+  const [api_products, setApiProducts] = useState([]);
+
+  useEffect(() => {
+    fetchProducts().then((data) => {
+      setApiProducts(data);
+    });
+  }, []);
 
   const products = [
     {
@@ -63,10 +83,10 @@ function ProductsPage(params) {
       series: "personal",
     },
     {
-      name: "Amaze",
-      price: "",
-      img: amaze,
-      series: "personal",
+      name: api_products[0]?.name,
+      price: api_products[0]?.price,
+      img: api_products[0]?.image_url,
+      series: api_products[0]?.series_type,
     },
     {
       name: "GE-512",

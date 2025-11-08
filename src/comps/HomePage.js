@@ -12,6 +12,9 @@ import left from "../Images/icons/Left.svg";
 import right from "../Images/icons/Right.svg";
 import star from "../Images/icons/ant-design_star-filled.svg";
 
+import hero from "../Images/home hero banners.png"
+import { motion } from "framer-motion";
+
 import featureImg from "../Images/aboutusimages/4a76f14900cc5759219c030a8b30edbd.png";
 import marbleBg from "../Images/f3d6a187ca8216e6c96f1fdf56225dcd.png";
 import reviewBg from "../Images/image 9.png";
@@ -59,9 +62,14 @@ function Content(params) {
 
 function ContentMobView(params) {
   return (
-    <div className="  w-screen ">
-      <ImageSlider />
-    </div>
+    <motion.div
+    initial={{ opacity: 0, scale: 0.95 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.6, delay: 0, ease: "easeOut" }}
+    viewport={{ once: true }}
+    className="  w-screen ">
+      <img src={hero} className=" w-full h-auto object-cover " />
+    </motion.div>
   );
 }
 
@@ -131,7 +139,12 @@ function HomePage(params) {
         </div>
       )}
       {/**--------------------------------------------------------------------------- */}
-      <div
+      <motion.div
+
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6, delay: 0, ease: "easeOut" }}
+        viewport={{ once: true }}
         id="collections_slide"
         className=" pt-8 w-[70vw] flex flex-col gap-8 lg:gap-16 items-center "
         // style={{
@@ -195,7 +208,7 @@ function HomePage(params) {
             txt={window?.innerWidth < 1024 ? ` text-lg ` : false}
           />
         </div>
-      </div>
+      </motion.div>
       {/**---------------------------------------------------------------------- */}
 
       {true && <ContentAboutUssection2 />}
@@ -204,7 +217,13 @@ function HomePage(params) {
       <ContentAboutUs />
       {/**---------------------------------------------------------------------- */}
       {true && (
-        <div className=" my-8 lg:my-16 w-full lg:h-[70vh] flex flex-col gap-8 items-center ">
+        <motion.div
+        
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6, delay: 0, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className=" my-8 lg:my-16 w-full lg:h-[70vh] flex flex-col gap-8 items-center ">
           <div className=" text-5xl lg:text-6xl font-semibold font-urbanist text-gion-teal ">
             Key Benefits
           </div>
@@ -233,7 +252,7 @@ function HomePage(params) {
             w={window?.innerWidth < 1024 ? ` w-[250px] ` : ` w-80 `}
             h={window?.innerWidth < 1024 ? ` h-[46px] ` : false}
             txt={window?.innerWidth < 1024 ? ` text-lg ` : false} />
-        </div>
+        </motion.div>
       )}
 
       <div className=" relative w-full h-[60vh] lg:h-[70vh] flex flex-col gap-6 lg:gap-20 items-center ">
@@ -280,17 +299,33 @@ function HomePage(params) {
             }
           </div>
         ) : (
-          <div className=" relative flex flex-row gap-8 ">
+          <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className=" relative flex flex-row gap-8 ">
             <ReviewCard />
-          </div>
+          </motion.div>
         )}
       </div>
 
       <div className=" my-6 lg:my-0 px-4 lg:px-0 w-full h-[65vh] lg:h-[45vh] flex flex-col lg:flex-row gap-8 lg:gap-20 items-center lg:justify-center ">
-        <div className=" relative w-full lg:w-[35%] -z-30 ">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.99 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className=" relative w-full lg:w-[35%] -z-30 ">
           <img src={gabi} />
-        </div>
-        <div className=" relative lg:mx-0 w-full lg:w-[40%] ">
+        </motion.div>
+        <motion.div
+        
+          initial={{ opacity: 0, scale: 0.90 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className=" relative lg:mx-0 w-full lg:w-[40%] ">
           <div className=" py-6 lg:py-8 px-3 lg:px-12 w-full h-[30vh] lg:h-[35vh] flex flex-col items-center justify-between text-center rounded-[32px] font-urbanist text-white bg-gion-teal  ">
             <div className=" text-3xl lg:text-6xl font-semibold ">
               GOT A BULK INQUIRY?
@@ -315,12 +350,12 @@ function HomePage(params) {
             {" "}
           </div>
           <div className=" absolute inset-0 w-full h-[30vh] lg:h-[35vh] rounded-[32px] shadow-custom-shadow -z-20 "></div>
-        </div>
+        </motion.div>
       </div>
 
       {
         <div className=" w-full ">
-          <ContactUs />
+          <ContactUs isHomePage={true} />
         </div>
       }
     </div>
