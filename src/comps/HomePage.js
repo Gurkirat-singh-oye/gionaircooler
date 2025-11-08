@@ -54,9 +54,14 @@ function ReviewCard(params) {
 
 function Content(params) {
   return (
-    <div className="  ">
+    <motion.div
+    initial={{ opacity: 0, scale: 0.96 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.6, delay: 0, ease: "easeOut" }}
+    viewport={{ once: true }}
+    className="  ">
       <ImageSlider mobView={false} />
-    </div>
+    </motion.div>
   );
 }
 
@@ -255,8 +260,8 @@ function HomePage(params) {
         </motion.div>
       )}
 
-      <div className=" relative w-full h-[60vh] lg:h-[70vh] flex flex-col gap-6 lg:gap-20 items-center ">
-        <div className=" absolute inset-0 h-full lg:w-full overflow-clip -z-10 ">
+      <div className=" lg:my-4 relative w-full h-[60vh] lg:h-[70vh] flex flex-col gap-6 lg:gap-20 items-center ">
+        <div className=" lg:my-4 absolute inset-0 h-full lg:w-full overflow-clip -z-10 ">
           <img src={reviewBg} className=" object-cover h-full lg:w-full " />
         </div>
         <div className=" pt-10 text-xl lg:text-6xl text-gion-teal font-semibold lg:font-medium font-urbanist ">

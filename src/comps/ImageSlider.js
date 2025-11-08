@@ -176,10 +176,12 @@ const ImageSliderOld = (props) => {
               // src={image}
               alt={image}
               className=" flex justify-center rounded-[18px] shadow-lg shadow-neutral-500 overflow-clip "
-              initial="center"
-              animate={positions[positionIndexes[index]]}
               variants={imageVariants}
-              transition={{ duration: 0.5 }}
+              animate={positions[positionIndexes[index]]}
+              initial={{ opacity: 0, scale: 0.96 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0, ease: "easeOut" }}
+              viewport={{ once: true }}
               style={{
                 width: props?.mobView ? "42%" : "25%",
                 height: "fit",
