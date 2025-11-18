@@ -119,6 +119,7 @@ function Nav(params) {
                   <img src={linkedinico} className=" w-10 " />
                 </div>
               </div>
+              <div>Breznov</div>
               <div>
                 <img src={searchIcon} className=" w-6 " />
               </div>
