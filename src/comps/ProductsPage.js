@@ -150,6 +150,8 @@ function ProductsPage(params) {
     },
   ];
 
+  // const products = api_products;
+
   const [selectedSeries, setSelectedSeries] = useState("");
   const [showCat, setShowCat] = useState(false);
 
