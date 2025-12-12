@@ -59,9 +59,9 @@ function ContentAboutUs(params) {
         A B O U T U S{" "}
       </div>
       <motion.div
-        initial={{ opacity: 0, x: 50 }}
+        initial={{ opacity: 0, x: 0 }}
         whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.6, delay: 0, ease: "easeOut" }}
+        transition={{ duration: 0.6, delay: .5, ease: "linear" }}
         viewport={{ once: true }}
         className={` ${
           window?.innerWidth < 1024 ? ` h-[400px] ` : `  `
@@ -73,9 +73,9 @@ function ContentAboutUs(params) {
         />
       </motion.div>
       <motion.div
-        initial={{ opacity: 0, x: -50 }}
+        initial={{ opacity: 0, x: 150 }}
         whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.6, delay: 0, ease: "easeOut" }}
+        transition={{ duration: 0.6, delay: .5, ease: "linear" }}
         viewport={{ once: true }}
         className={` py-6 flex flex-col ${
           window?.innerWidth < 1024 ? ` gap-2 ` : ` gap-4 `

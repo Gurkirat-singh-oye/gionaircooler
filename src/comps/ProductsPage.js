@@ -22,6 +22,7 @@ import sset from "../Images/productimages/ge7718.jpeg";
 import Gbutton from "./utilcomps/Gbutton";
 
 import { supabase } from "../supabaseClient"
+import ProductDescCard from "./utilcomps/ProductDescCard";
 
 function ProductCard(params) {
   return (
@@ -75,92 +76,92 @@ function ProductsPage(params) {
     });
   }, []);
 
-  const products = [
-    {
-      name: "Lilliput",
-      price: "15,000",
-      img: lilliput,
-      series: "personal",
-    },
-    {
-      name: api_products[0]?.name,
-      price: api_products[0]?.price,
-      img: api_products[0]?.image_url,
-      series: api_products[0]?.series_type,
-    },
-    {
-      name: "GE-512",
-      price: "",
-      img: ftw,
-      series: "personal",
-    },
-    {
-      name: "GE-512 T",
-      price: "",
-      img: ftwt,
-      series: "personal",
-    },
-    {
-      name: "Window Cooler",
-      price: "",
-      img: windcool,
-      series: "window",
-    },
-    {
-      name: "GE-515",
-      price: "",
-      img: fft,
-      series: "eco",
-    },
-    {
-      name: "GE-515 T",
-      price: "",
-      img: fftt,
-      series: "eco",
-    },
-    {
-      name: "GE-517",
-      price: "",
-      img: fst,
-      series: "eco",
-    },
-    {
-      name: "GE-521",
-      price: "",
-      img: fto,
-      series: "premium",
-    },
-    {
-      name: "GE-7721",
-      price: "",
-      img: ssto,
-      series: "premium",
-    },
-    {
-      name: "GE-518",
-      price: "",
-      img: fet,
-      series: "premium",
-    },
-    {
-      name: "GE-7718",
-      price: "",
-      img: sset,
-      series: "premium",
-    },
-  ];
+  // const products = [
+  //   {
+  //     name: "Lilliput",
+  //     price: "15,000",
+  //     img: lilliput,
+  //     series: "personal",
+  //   },
+  //   {
+  //     name: api_products[0]?.name,
+  //     price: api_products[0]?.price,
+  //     img: api_products[0]?.image_url,
+  //     series: api_products[0]?.series_type,
+  //   },
+  //   {
+  //     name: "GE-512",
+  //     price: "",
+  //     img: ftw,
+  //     series: "personal",
+  //   },
+  //   {
+  //     name: "GE-512 T",
+  //     price: "",
+  //     img: ftwt,
+  //     series: "personal",
+  //   },
+  //   {
+  //     name: "Window Cooler",
+  //     price: "",
+  //     img: windcool,
+  //     series: "window",
+  //   },
+  //   {
+  //     name: "GE-515",
+  //     price: "",
+  //     img: fft,
+  //     series: "eco",
+  //   },
+  //   {
+  //     name: "GE-515 T",
+  //     price: "",
+  //     img: fftt,
+  //     series: "eco",
+  //   },
+  //   {
+  //     name: "GE-517",
+  //     price: "",
+  //     img: fst,
+  //     series: "eco",
+  //   },
+  //   {
+  //     name: "GE-521",
+  //     price: "",
+  //     img: fto,
+  //     series: "premium",
+  //   },
+  //   {
+  //     name: "GE-7721",
+  //     price: "",
+  //     img: ssto,
+  //     series: "premium",
+  //   },
+  //   {
+  //     name: "GE-518",
+  //     price: "",
+  //     img: fet,
+  //     series: "premium",
+  //   },
+  //   {
+  //     name: "GE-7718",
+  //     price: "",
+  //     img: sset,
+  //     series: "premium",
+  //   },
+  // ];
 
-  // const products = api_products;
+  const products = api_products;
 
   const [selectedSeries, setSelectedSeries] = useState("");
   const [showCat, setShowCat] = useState(false);
 
   return (
-    <div className=" mb-36 ">
+    <div className=" pb-36 bg-bubbles ">
       <div
         className={` w-full ${
           0 ? `h-[300px]` : `h-[160px]`
-        } lg:h-[280px] flex flex-col gap-3 lg:gap-10 justify-center items-center text-[#FFFFFF] bg-gion-teal `}
+        } lg:h-[220px] flex flex-col gap-3 lg:gap-10 justify-center items-center text-[#FFFFFF] bg-gion-teal `}
       >
         <div className=" text-5xl lg:text-6xl font-[Newsreader] font-bold ">
           {" "}
@@ -242,7 +243,7 @@ function ProductsPage(params) {
       </div>
 
       {true && (
-        <div id="products_content" className=" lg:m-20 flex flex-col lg:flex-row gap-2 lg:gap-16 ">
+        <div id="products_content" className=" lg:my-4 flex flex-col lg:flex-row gap-2 lg:gap-16 ">
           {/** get all filters from backend */}
           { false && <div
             id="filters"
@@ -323,7 +324,7 @@ function ProductsPage(params) {
             </div>}
           </div>}
 
-          {<div className=" py-8 lg:mx-auto lg:w-[1400px] w-screen flex flex-row justify-center flex-wrap gap-2 lg:gap-10 ">
+          {<div className=" py-8 lg:mx-auto lg:w-[1590px] w-screen flex flex-row justify-center flex-wrap gap-2 lg:gap-10 ">
             {/** check for if the series filter is applied */}
             {selectedSeries == ""
               ? products.map((each, ind) => {
@@ -331,10 +332,12 @@ function ProductsPage(params) {
                     <div>
                       {
                         <div>
-                          <CoolProductsCard
-                            img={each?.img}
+                          <ProductDescCard
+                            img={each?.image_url}
                             name={each?.name}
                             price={each?.price}
+                            series={each?.series_type}
+                            specs={each?.specifications}
                           />
                         </div>
                       }
@@ -344,10 +347,10 @@ function ProductsPage(params) {
               : products.map((each, ind) => {
                   return (
                     <>
-                      {selectedSeries == each?.series && (
+                      {selectedSeries == each?.series_type && (
                         <div>
                           <CoolProductsCard
-                            img={each?.img}
+                            img={each?.image_url}
                             name={each?.name}
                             price={each?.price}
                           />

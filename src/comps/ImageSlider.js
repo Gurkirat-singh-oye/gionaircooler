@@ -7,73 +7,89 @@ import im3 from "../Images/set_image_slider/ee8f5d0266b915a51e22cdeaa4caee80.png
 import im4 from "../Images/set_image_slider/4e25a634ad9e1b8db3a44f2cd4cb121a.png";
 import arrow from "../Images/icons/Arrow Right.svg";
 
-import cool1 from "../Images/set_image_slider/punk_cooler.webp"
-import cool2 from "../Images/set_image_slider/vint_cooler .webp"
-import cool3 from "../Images/set_image_slider/room_cooler.webp"
-import cool4 from "../Images/set_image_slider/garden_cooler.webp"
-import cool5 from "../Images/set_image_slider/gion.pdf (2).png"
-import cool6 from "../Images/set_image_slider/banner 1.png"
-import cool7 from "../Images/set_image_slider/banner 2 .png"
-import mcool1 from "../Images/set_image_slider/0695310551913bd6bee8ccc7d74e861e272e13c8.jpg"
+import cool6 from "../Images/set_image_slider/banner 1.png";
+import mcool1 from "../Images/set_image_slider/0695310551913bd6bee8ccc7d74e861e272e13c8.jpg";
 
-import { supabase } from "../supabaseClient"
+import { supabase } from "../supabaseClient";
 import Spinner from "./utilcomps/Spinner";
 
 const ImageSlider = (props) => {
-
   const [forDot, setForDot] = useState(75);
-  const [banners, setBanners] = useState(null)
+  const [banners, setBanners] = useState(null);
 
   const [spinnerState, setSpinnerState] = useState(false);
 
-  async function fetchBanners () {
-    let { data: imageUrl } = await supabase
-    .from('imageurls')
-    .select('*')
-    return imageUrl
-  }
-
-
-  const [imgArr, setImgArr] = useState( window?.innerWidth > 640 ? [
-    // <div className="w-full h-[70vh] bg-gion-teal overflow-hidden ">
-    //   <img src={cool5} className=" top-5 h-full lg:w-full object-cover " />
-    // </div>,
-    // <div className=" w-full h-[70vh] bg-gion-teal overflow-clip ">
-    //   <img src={cool1} className=" h-full lg:w-full object-cover " />
-    // </div>,
-    // <div className=" w-full h-[70vh] bg-gion-teal overflow-clip ">
-    //   <img src={cool2} className=" h-full lg:w-full object-cover " />
-    // </div>,
-    // <div className=" w-full h-[70vh] bg-gion-teal overflow-clip ">
-    //   <img src={cool3} className=" h-full lg:w-full object-cover " />
-    // </div>,
-    // <div className=" w-full h-[70vh] bg-gion-teal overflow-clip ">
-    //   <img src={cool4} className=" h-full lg:w-full object-cover " />
-    // </div>,
-    // <img src={cool5} className=" relative  h-full lg:w-full object-cover " />,
-    <img src={cool6} className=" top-5 h-full lg:w-full object-cover " />,
-    // <img src={cool2} className=" top-5 h-full lg:w-full object-cover " />,
-    // <img src={cool1} className=" top-5 h-full lg:w-full object-cover " />,
-  ] : [
-    <img src={mcool1} className=" relative top-5 right-2 h-full w-full scale-[1.12] object-cover " />,
-  ] );
+  const duration = 5000;
 
   useEffect(() => {
-    setSpinnerState(true)
+    const interval = setInterval(() => {
+      setForDot((prev) => prev + 1);
+    }, duration);
+    return () => clearInterval(interval);
+  }, []);
+
+  async function fetchBanners() {
+    let { data: imageUrl } = await supabase.from("imageurls").select("*");
+    return imageUrl;
+  }
+
+  const [imgArr, setImgArr] = useState(
+    window?.innerWidth > 640
+      ? [
+          <>
+            <img
+              src={cool6}
+              className=" top-5 h-full lg:w-full object-cover "
+            />
+            <motion.div
+              key={1}
+              initial={{ width: "0%" }}
+              animate={{ width: "100%" }}
+              transition={{ duration: duration / 1000, ease: "easeInOut" }}
+              className=" h-0.5 bg-gion-teal rounded-2xl z-30"
+            />
+          </>,
+        ]
+      : [
+          <img
+            src={mcool1}
+            className=" relative top-5 right-2 h-full w-full scale-[1.12] object-cover "
+          />,
+        ]
+  );
+
+  useEffect(() => {
+    setSpinnerState(true);
     fetchBanners().then((data) => {
-      setBanners(data[0]?.url)
-      setImgArr(imgArr.concat(<img src={data[0]?.url} className=" top-5 h-full lg:w-full object-cover " />))
-      setSpinnerState(false)
-      console.log("got the link", data[0]?.url)
-    })
-  }, [])
+      setBanners(data[0]?.url);
+      setImgArr(
+        imgArr.concat(
+          <>
+            <img
+              src={data[0]?.url}
+              className=" top-5 h-full lg:w-full object-cover "
+            />
+            <motion.div
+              key={2}
+              initial={{ width: "0%" }}
+              animate={{ width: "100%" }}
+              transition={{ duration: duration / 1000, ease: "easeInOut" }}
+              className=" h-0.5 bg-gion-teal rounded-2xl z-30"
+            />
+          </>
+        )
+      );
+      setSpinnerState(false);
+      console.log("got the link", data[0]?.url);
+    });
+  }, []);
 
   return (
     <div>
-      <div className="w-full h-[75vh] overflow-hidden ">
-        { spinnerState ? <Spinner /> : imgArr[forDot%(imgArr.length)]}
+      <div className="w-full h-[75vh]  ">
+        {spinnerState ? <Spinner /> : imgArr[forDot % imgArr.length]}
       </div>
-      <div>
+      { false && <div>
         <div
           className={` ${
             props?.mobView ? ` -mt-10 ` : `my-4`
@@ -82,13 +98,15 @@ const ImageSlider = (props) => {
           <img
             src={arrow}
             className=" w-5 h-5 cursor-pointer rotate-180"
-            onClick={() => {setForDot(forDot-1)}}
+            onClick={() => {
+              setForDot(forDot - 1);
+            }}
           />
           <div className=" flex flex-row gap-2 items-center ">
             {imgArr?.map((each, ind) => {
               return (
                 <>
-                  {forDot%(imgArr.length) == ind ? (
+                  {forDot % imgArr.length == ind ? (
                     <div className=" w-[13px] h-[13px] rounded-full bg-gion-teal " />
                   ) : (
                     <div className=" w-[10px] h-[10px] rounded-full bg-neutral-300 " />
@@ -100,10 +118,12 @@ const ImageSlider = (props) => {
           <img
             src={arrow}
             className=" w-5 h-5 cursor-pointer"
-            onClick={() => {setForDot(forDot+1)}}
+            onClick={() => {
+              setForDot(forDot + 1);
+            }}
           />
         </div>
-      </div>
+      </div>}
     </div>
   );
 };

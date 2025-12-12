@@ -7,7 +7,9 @@ module.exports = {
         "gion-blue": "#0098DA",
         "gion-teal": "#2C6975",
         "gion-seafoam-green": "#5FA8A3",
-        "gion-powder-blue": "#CAEAF0"
+        "gion-powder-blue": "#CAEAF0",
+        "bubbles": "#e6fbff",
+        "japanese-indigo": "#1c4149",
       },
       boxShadow: {
         "custom-shadow": `-20px 18px 23px 0px rgba(0, 0, 0, 0.1), 

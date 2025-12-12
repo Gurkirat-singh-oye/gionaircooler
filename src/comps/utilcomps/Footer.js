@@ -23,7 +23,7 @@ function Footer(params) {
         <div
           className={` w-full h-[16vh] rounded-b-[200px] ${
             window.location.pathname == "/products"
-              ? `bg-white`
+              ? `bg-bubbles`
               : `bg-gion-powder-blue`
           } `}
           style={{
