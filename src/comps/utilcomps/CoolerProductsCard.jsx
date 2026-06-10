@@ -1,6 +1,6 @@
 function CoolerProductsCard(params) {
   return (
-    <div className=" w-[376px] h-[255px] flex flex-row rounded-2xl border border-gion-teal-2 shadow-card overflow-clip ">
+    <div className=" w-[376px] h-[255px] flex flex-row rounded-2xl border border-gion-teal-2 shadow-card transition-all duration-1000 hover:scale-105 overflow-clip ">
       <div className=" px-3 py-8 flex flex-col justify-between ">
         <div className=" text-[16.6px] font-bold font-segoe ">
           Desert Cooler GE-517

@@ -54,7 +54,7 @@ function ContentAboutUs(params) {
   return (
     <motion.div
       className={` my-10 relative ${
-        window?.innerWidth < 1024 ? ` w-[300px] ` : ` w-[1400px] h-[600px] `
+        window?.innerWidth < 1024 ? ` w-[350px] ` : ` w-[1400px] h-[600px] `
       } flex ${
         window?.innerWidth < 1024 ? ` flex-col gap-8 ` : ` flex-row gap-16 `
       } `}
@@ -69,7 +69,7 @@ function ContentAboutUs(params) {
         transition={{ duration: 0.6, delay: 0.5, ease: "linear" }}
         viewport={{ once: true }}
         className={` ${
-          window?.innerWidth < 1024 ? ` h-[400px] ` : `  `
+          window?.innerWidth < 1024 ? ` h-[350px] ` : `  `
         } min-w-[40%] hover:scale-[1.01] transition-all duration-500 rounded-2xl shadow-custom-shadow overflow-clip `}
       >
         <img
@@ -82,52 +82,50 @@ function ContentAboutUs(params) {
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6, delay: 0.5, ease: "linear" }}
         viewport={{ once: true }}
-        className={` py-6 flex flex-col ${
-          window?.innerWidth < 1024 ? ` gap-2 ` : ` gap-12 `
+        className={` lg:py-6 flex flex-col ${
+          window?.innerWidth < 1024 ? ` gap-4 ` : ` gap-12 `
         } items-start justify-center `}
       >
         <div
-          className={` text-center lg:text-left ${
-            window?.innerWidth < 768
-              ? `text-[28px]`
-              : `text-[48px] leading-none `
-          } font-bold font-poppins `}
+          className={`text-left ${
+            window?.innerWidth < 768 ? `leading-[1.1]` : `leading-none `
+          } tracking-tight text-[48px] font-bold font-poppins `}
         >
-          Advanced cooling, engineered by specialists
+          Advanced Cooling, Engineered by Specialists
         </div>
-        <div
-          className={` text-center lg:text-start text-neutral-500 font-segoe ${
-            window?.innerWidth < 1024 ? ` text-xs ` : ` text-2xl `
-          } `}
-        >
-          For over 15 years, Gion Air Cooler (Deogun Industries) has focused
+        <div className={` text-start text-neutral-500 font-segoe text-2xl tracking-[0.01em] `}>
+          For over 30 years, Gion Air Cooler (Deogun Industries) has focused
           only on building reliable, energy‑efficient air coolers for Indian
           homes and businesses. From in‑house R&D to ISO 9001 and BIS‑certified
           manufacturing, every cooler is designed, tested, and built in our own
           facility to handle India’s toughest summers.
         </div>
         <div className=" flex flex-col gap-4 font-bold font-segoe ">
-          <p>✓ 15+ years of experience and OEM manufacturing expertise.</p>
           <p>
-            ✓ Pan‑India dealer network with fast delivery and easy replacement
-            support.
+            <a className=" text-gion-teal-3 ">✓</a> 30+ years of experience and
+            OEM manufacturing expertise.
           </p>
           <p>
-            ✓ Lakhs of satisfied customers who trust our quality and after‑sales
-            service.
+            <a className=" text-gion-teal-3 ">✓</a> Pan‑India dealer network
+            with fast delivery and easy replacement support.
+          </p>
+          <p>
+            <a className=" text-gion-teal-3 ">✓</a> Lakhs of satisfied customers
+            who trust our quality and after‑sales service.
           </p>
         </div>
-
-        <Gbutton
-          linkTo={currPage == "/aboutus" ? "/products" : "/aboutus"}
-          label={
-            currPage == "/aboutus"
-              ? "Explore Our Product Range"
-              : "Explore More On The About Us Page"
-          }
-          w={" px-8 py-6 w-fit text-nowrap "}
-          txt={" text-lg font-segoe "}
-        />
+        <div className=" mx-auto lg:mx-0 " >
+          <Gbutton
+            linkTo={currPage == "/aboutus" ? "/products" : "/aboutus"}
+            label={
+              currPage == "/aboutus"
+                ? "Explore Our Product Range"
+                : "Explore More On The About Us Page"
+            }
+            w={" px-8 py-6 w-fit text-nowrap "}
+            txt={" text-lg font-segoe "}
+          />
+        </div>
       </motion.div>
     </motion.div>
   );
@@ -254,14 +252,13 @@ function AboutUs(params) {
   return (
     <div className=" flex flex-col gap-3 lg:gap-[70px] items-center ">
       <div
-        className=" py-20 w-full h-full flex justify-center "
+        className=" lg:py-20 w-full h-full flex justify-center "
         style={{
           backgroundImage: "radial-gradient(circle, #ffffff, #E0ECED)",
         }}
       >
         <ContentAboutUs />
       </div>
-
 
       <div
         id="why choose us"

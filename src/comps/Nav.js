@@ -61,7 +61,7 @@ function Nav(params) {
           {/* <div
             className={` absolute w-full inset-x-0 h-full max-h-[88px] sm:backdrop-blur-[10px] bg-white sm:bg-opacity-50  -z-10 `}
           /> */}
-          <Link to="/">
+          <Link to="/" viewTransition >
             <img
               src={logo}
               className={`
@@ -107,7 +107,7 @@ function Nav(params) {
             </div>
           )}
           
-          <Link to={"/contactus"} className=" bg-gion-teal-2 text-white font-extrabold px-5 py-1.5 rounded-md cursor-pointer " >
+          <Link to={"/contactus"} viewTransition className=" hidden lg:block bg-gion-teal-2 text-white font-extrabold px-5 py-1.5 rounded-md cursor-pointer " >
             Contact
           </Link>
 

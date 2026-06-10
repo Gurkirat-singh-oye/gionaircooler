@@ -281,7 +281,7 @@ function ProductsPage(params) {
         ) : (
           <div className=" flex flex-row gap-16 justify-center items-center text-xl font-black ">
             <div
-              className={` px-3 py-1 flex flex-col items-start ${ selectedSeries == "personal series" ? "bg-gion-powder-blue" : "bg-white"} rounded-2xl cursor-pointer group`}
+              className={` px-3 py-1 flex flex-col items-start ${selectedSeries == "personal series" ? "bg-gion-powder-blue" : "bg-white"} rounded-2xl cursor-pointer group`}
               onClick={() =>
                 selectedSeries == "personal series"
                   ? setSelectedSeries("")
@@ -438,24 +438,18 @@ function ProductsPage(params) {
           )}
 
           {
-            <div className=" py-8 lg:mx-auto lg:w-[1590px] w-screen flex flex-row justify-center flex-wrap gap-2 lg:gap-10 ">
+            <div className=" py-8 lg:mx-auto lg:w-fit w-screen grid grid-cols-3 gap-2 lg:gap-x-10 lg:gap-y-16 ">
               {/** check for if the series filter is applied */}
               {selectedSeries == ""
                 ? products.map((each, ind) => {
                     return (
-                      <div>
-                        {
-                          <div>
-                            <CoolerProductsCard
-                              img={each?.image_url}
-                              name={each?.name}
-                              price={each?.price}
-                              series={each?.series_type}
-                              // specs={each?.specifications}
-                            />
-                          </div>
-                        }
-                      </div>
+                      <CoolerProductsCard
+                        img={each?.image_url}
+                        name={each?.name}
+                        price={each?.price}
+                        series={each?.series_type}
+                        // specs={each?.specifications}
+                      />
                     );
                   })
                 : products.map((each, ind) => {
