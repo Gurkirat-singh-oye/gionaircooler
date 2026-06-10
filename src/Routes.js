@@ -19,7 +19,7 @@ export const Routes = () => {
   return (
     <Router>
       <Nav />
-      <div className=" w-screen h-[70px] lg:h-[120px] "></div>
+      <div className=" w-screen h-[70px] lg:h-[88px] "></div>
       <Switch>
         <Route path="/" element={<HomePage />} />
         <Route path="/products" element={<ProductsPage />} />

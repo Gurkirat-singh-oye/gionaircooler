@@ -9,11 +9,11 @@ function ProductDescCard(params) {
       className=" group p-2 w-[350px] hover:w-[370px] h-[570px] flex flex-col gap-4 rounded-2xl hover:scale-105 shadow-custom-shadow hover:shadow-custom-shadow-big transition-all duration-700 ease-in-out cursor-pointer bg-japanese-indigo overflow-clip "
       onMouseEnter={() => {
         setHoverFullName(true);
-        console.log("entered");
+        // console.log("entered");
       }}
       onMouseLeave={() => {
         setHoverFullName(false);
-        console.log("left");
+        // console.log("left");
       }}
     >
       <div
@@ -47,21 +47,21 @@ function ProductDescCard(params) {
         <div className=" mx-2 flex flex-row justify-between text-gion-powder-blue font-urbanist ">
           <div className=" flex flex-col items-center ">
             <p>Wattage</p>
-            <p>{params?.specs[0]?.wattage}W</p>
+            {/* <p>{params?.specs[0]?.wattage || 0}W</p> */}
           </div>
           <div className=" flex flex-col items-center ">
             <p>{"Dimensions(mm)"}</p>
             <div className=" flex flex-row gap-1 ">
-              <p>{params?.specs[0]?.dimensions?.width}</p>
+              {/* <p>{params?.specs[0]?.dimensions?.width}</p> */}
               <p>x</p>
-              <p>{params?.specs[0]?.dimensions?.depth}</p>
+              {/* <p>{params?.specs[0]?.dimensions?.depth}</p> */}
               <p>x</p>
-              <p>{params?.specs[0]?.dimensions?.length}</p>
+              {/* <p>{params?.specs[0]?.dimensions?.length}</p> */}
             </div>
           </div>
           <div className=" flex flex-col items-center ">
             <p>Tank Size</p>
-            <p>{params?.specs[0]?.tank_capacity}L</p>
+            {/* <p>{params?.specs[0]?.tank_capacity}L</p> */}
           </div>
         </div>
       </div>

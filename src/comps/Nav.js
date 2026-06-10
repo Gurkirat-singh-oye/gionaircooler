@@ -11,6 +11,7 @@ import twitterico from "../Images/icons/Twitter.svg";
 import linkedinico from "../Images/icons/LinkedIn.svg";
 
 import closeIcon from "../Images/icons/close.png";
+import Gbutton from "./utilcomps/Gbutton";
 
 function Nav(params) {
   const NavArr = {
@@ -18,28 +19,28 @@ function Nav(params) {
     Products: "/products",
     Catalogue: "/catalogue",
     "About Us": "/aboutus",
-    "Contact Us": "/contactus",
+    // "Contact Us": "/contactus",
   };
 
   const [productsMenu, setProductsMenu] = useState(false);
-  const [navH, setNavH] = useState(113);
+  const [navH, setNavH] = useState(88);
   const [brMenu, setBrMenu] = useState(false);
 
   const [lastScrollY, setLastScrollY] = useState(0);
   const [showNav, setShowNav] = useState(true);
+  const [lockNav, setLockNav] = useState(false);
 
   const location = useLocation();
   // console.log(window.location.pathname
 
-
   window?.addEventListener("scroll", () => {
     const scrollY = window?.scrollY;
-    setShowNav(scrollY < lastScrollY);
+    !lockNav ? setShowNav(scrollY < lastScrollY) : setShowNav(true);
     setLastScrollY(scrollY);
   });
 
   useEffect(() => {
-    window?.innerWidth < 1024 && !brMenu ? setNavH(70) : setNavH(113);
+    window?.innerWidth < 1024 && !brMenu ? setNavH(70) : setNavH(88);
   }, [window?.innerWidth]);
 
   useEffect(() => {
@@ -48,24 +49,27 @@ function Nav(params) {
   }, [location]);
 
   return (
-    <div className={`fixed w-full delay-200 ease-in-out transition-all duration-500 z-[40] ${ showNav ? `translate-y-0` : `-translate-y-full`} `}>
+    <div
+      className={`fixed w-full delay-200 ease-in-out transition-all duration-500 z-[40] ${showNav ? `translate-y-0` : `-translate-y-full`} `}
+    >
       <div
-        className={` my-4 mx-2 sm:mx-8 2xl:mx-32 h-[${navH}px] rounded-full bg-[#2C69751A] border border-[#DEEFFF] transition-all duration-700 `}
+        className={` h-[${navH}px] bg-[#ffffff] shadow-md transition-all duration-700 `}
       >
         <div
-          className={` relative px-[30px] lg:px-0 w-full h-[${navH}px] max-h-[113px] flex flex-row lg:gap-8 2xl:gap-32 items-center justify-between `}
+          className={` relative px-[30px] lg:px-0 w-full h-[${navH}px] min-h-[88px] max-h-[88px] flex flex-row lg:gap-8 2xl:gap-72 items-center justify-center `}
         >
-          <div
-            className={` absolute w-full inset-x-0 h-full max-h-[88px] sm:backdrop-blur-[10px] bg-white sm:bg-opacity-50 rounded-full -z-10 `}
-          />
+          {/* <div
+            className={` absolute w-full inset-x-0 h-full max-h-[88px] sm:backdrop-blur-[10px] bg-white sm:bg-opacity-50  -z-10 `}
+          /> */}
           <Link to="/">
             <img
               src={logo}
-              className=" lg:ml-[80px] 2xl:ml-[135px] w-[60px] lg:w-[94px] cursor-pointer "
+              className={`
+              w-[60px] lg:w-[94px] cursor-pointer `}
             />
           </Link>
           {window?.innerWidth > 1024 && (
-            <div className=" mx-4 flex flex-row gap-10 text-xl text-gion-teal text-nowrap font-light ">
+            <div className=" mx-4 flex flex-row gap-10 text-xl text-gion-teal text-nowrap font-light font-roboto ">
               {Object.keys(NavArr).map((each, ind) => {
                 return (
                   <Link
@@ -102,8 +106,14 @@ function Nav(params) {
               })}
             </div>
           )}
+          
+          <Link to={"/contactus"} className=" bg-gion-teal-2 text-white font-extrabold px-5 py-1.5 rounded-md cursor-pointer " >
+            Contact
+          </Link>
 
-          {window?.innerWidth > 1024 ? (
+          {/* <button onClick={() => setLockNav(!lockNav)} >lock nav</button> */}
+
+          {/* {window?.innerWidth > 1024 ? (
             <div className=" mr-4 lg:mr-10 flex flex-row flex-shrink-0 gap-[2vw] items-center ">
               <div className=" flex flex-row gap-2">
                 <div>
@@ -133,7 +143,7 @@ function Nav(params) {
                 }}
               />
             </div>
-          )}
+          )} */}
 
           {/* {window?.innerWidth > 1024 ? (
             <div className=" mr-[155px] flex flex-row ">

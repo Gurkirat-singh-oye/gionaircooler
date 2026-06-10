@@ -7,7 +7,7 @@ import im3 from "../Images/set_image_slider/ee8f5d0266b915a51e22cdeaa4caee80.png
 import im4 from "../Images/set_image_slider/4e25a634ad9e1b8db3a44f2cd4cb121a.png";
 import arrow from "../Images/icons/Arrow Right.svg";
 
-import cool6 from "../Images/set_image_slider/banner 1.png";
+import cool6 from "../Images/set_image_slider/banner1.png";
 import mcool1 from "../Images/set_image_slider/0695310551913bd6bee8ccc7d74e861e272e13c8.jpg";
 
 import { supabase } from "../supabaseClient";
@@ -28,10 +28,10 @@ const ImageSlider = (props) => {
     return () => clearInterval(interval);
   }, []);
 
-  async function fetchBanners() {
-    let { data: imageUrl } = await supabase.from("imageurls").select("*");
-    return imageUrl;
-  }
+  // async function fetchBanners() {
+  //   let { data: imageUrl } = await supabase.from("imageurls").select("*");
+  //   return imageUrl;
+  // }
 
   const [imgArr, setImgArr] = useState(
     window?.innerWidth > 640
@@ -58,35 +58,35 @@ const ImageSlider = (props) => {
         ]
   );
 
-  useEffect(() => {
-    setSpinnerState(true);
-    fetchBanners().then((data) => {
-      setBanners(data[0]?.url);
-      setImgArr(
-        imgArr.concat(
-          <>
-            <img
-              src={data[0]?.url}
-              className=" top-5 h-full lg:w-full object-cover "
-            />
-            <motion.div
-              key={2}
-              initial={{ width: "0%" }}
-              animate={{ width: "100%" }}
-              transition={{ duration: duration / 1000, ease: "easeInOut" }}
-              className=" h-0.5 bg-gion-teal rounded-2xl z-30"
-            />
-          </>
-        )
-      );
-      setSpinnerState(false);
-      console.log("got the link", data[0]?.url);
-    });
-  }, []);
+  // useEffect(() => {
+  //   setSpinnerState(true);
+  //   fetchBanners().then((data) => {
+  //     setBanners(data[0]?.url);
+  //     setImgArr(
+  //       imgArr.concat(
+  //         <>
+  //           <img
+  //             src={data[0]?.url}
+  //             className=" top-5 h-full lg:w-full object-cover "
+  //           />
+  //           <motion.div
+  //             key={2}
+  //             initial={{ width: "0%" }}
+  //             animate={{ width: "100%" }}
+  //             transition={{ duration: duration / 1000, ease: "easeInOut" }}
+  //             className=" h-0.5 bg-gion-teal rounded-2xl z-30"
+  //           />
+  //         </>
+  //       )
+  //     );
+  //     setSpinnerState(false);
+  //     console.log("got the link", data[0]?.url);
+  //   });
+  // }, []);
 
   return (
     <div>
-      <div className="w-full h-[75vh]  ">
+      <div className=" lg:mx-auto w-full lg:w-[1392px] h-[75vh] lg:h-[540px] ">
         {spinnerState ? <Spinner /> : imgArr[forDot % imgArr.length]}
       </div>
       { false && <div>
