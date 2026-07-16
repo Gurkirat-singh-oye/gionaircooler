@@ -61,12 +61,12 @@ function ProductCard(params) {
   );
 }
 
-async function fetchProducts(series_type) {
-  // let { data: products } = await supabase.from("products").select("*");
-  // // console.log("products", products);
-  // return series_type
-  //   ? products.filter((p) => p.series_type === series_type)
-  //   : products;
+async function fetchProducts(series) {
+  let { data: products } = await supabase.from("products").select("*");
+  console.log("products", products);
+  return series
+    ? products.filter((p) => p.series === series)
+    : products;
 }
 
 function ProductsPage(params) {
@@ -76,12 +76,12 @@ function ProductsPage(params) {
   // change var names
   const [api_products, setApiProducts] = useState([]);
 
-  // useEffect(() => {
-  //   fetchProducts(selectedSeries).then((data) => {
-  //     setApiProducts(data);
-  //   });
-  //   console.log("selectedSeries", api_products);
-  // }, [selectedSeries]);
+  useEffect(() => {
+    fetchProducts(selectedSeries).then((data) => {
+      setApiProducts(data);
+    });
+    console.log("selectedSeries", api_products);
+  }, [selectedSeries]);
 
   // const products = [
   //   {
@@ -344,6 +344,22 @@ function ProductsPage(params) {
               />
               <div className=" mx-auto text-base opacity-60 ">4 Products</div>
             </div>
+            <div
+              className=" flex flex-col items-start cursor-pointer group"
+              onClick={() =>
+                selectedSeries == "commercial series"
+                  ? setSelectedSeries("")
+                  : setSelectedSeries("commercial series")
+              }
+            >
+              COMMERCIAL SERIES{" "}
+              <div
+                className={` ${
+                  selectedSeries === "commercial series" ? `w-[80px]` : `w-0`
+                } group-hover:w-[100px] h-[3px] transition-all duration-500 bg-[#213577] `}
+              />
+              <div className=" mx-auto text-base opacity-60 ">4 Products</div>
+            </div>
           </div>
         )}
       </div>
@@ -441,27 +457,29 @@ function ProductsPage(params) {
             <div className=" py-8 lg:mx-auto lg:w-fit w-screen grid grid-cols-3 gap-2 lg:gap-x-10 lg:gap-y-16 ">
               {/** check for if the series filter is applied */}
               {selectedSeries == ""
-                ? products.map((each, ind) => {
+                ? api_products.map((each, ind) => {
                     return (
                       <CoolerProductsCard
-                        img={each?.image_url}
+                        img={each?.images && each?.images[0]}
                         name={each?.name}
                         price={each?.price}
-                        series={each?.series_type}
+                        series={each?.series}
+                        desc={each?.short_description}
                         // specs={each?.specifications}
                       />
                     );
                   })
-                : products.map((each, ind) => {
+                : api_products.map((each, ind) => {
                     return (
                       <>
-                        {selectedSeries == each?.series_type && (
+                        {selectedSeries == each?.series && (
                           <div>
                             <CoolerProductsCard
-                              img={each?.image_url}
+                              img={each?.images && each?.images[0]}
                               name={each?.name}
                               price={each?.price}
-                              series={each?.series_type}
+                              series={each?.series}
+                              desc={each?.short_description}
                               // specs={each?.specifications}
                             />
                           </div>
@@ -479,4 +497,5 @@ function ProductsPage(params) {
 }
 
 export { fetchProducts };
+export { ProductCard }
 export default ProductsPage;

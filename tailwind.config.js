@@ -9,6 +9,7 @@ module.exports = {
         "gion-teal-blue": "#B2E0E0",
         "gion-teal-2": "#1A7A89",
         "gion-teal-3": "#0F6B6F",
+        "gion-teal-4": "#37B4CA",
         "gion-seafoam-green": "#5FA8A3",
         "gion-powder-blue": "#E6F4F4",
         "gion-gray": "#6C7A7D",
