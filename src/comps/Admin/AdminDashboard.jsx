@@ -1,8 +1,88 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { supabase } from "../../supabaseClient";
 import MultiImageUploader from "./ImageUploadComp";
+
+function KeyBenefits(params) {
+  const [prompt, setPrompt] = useState(false);
+  const [newBenefit, setNewBenefit] = useState("");
+  const [benefits, setBenefits] = useState([]);
+
+  const saveBenefits = () => {
+
+    let benefitAssembly = ""
+    benefits?.forEach((each) => {
+      benefitAssembly = benefitAssembly.concat(each?.label, ">", each?.value, "|")
+    })
+    params?.upspec("key_benefits", benefitAssembly)
+
+  }
+
+  return (
+    <div className="flex flex-col gap-2">
+      <div>Key Benefits</div>
+      <div className=" grid grid-cols-1 lg:grid-cols-2 items-end gap-4 ">
+        {benefits?.map((benefit) => (
+          <div className="flex flex-col gap-2" key={benefit.label}>
+            <label className="font-medium">{benefit.label}</label>
+            <input
+              className="px-3 py-2 border border-slate-300 rounded"
+              type="text"
+              placeholder="List use cases with comma separation"
+              value={benefit.value}
+              onChange={(e) =>
+                setBenefits((prev) =>
+                  prev.map((b) =>
+                    b.label === benefit.label
+                      ? { ...b, value: e.target.value }
+                      : b,
+                  ),
+                )
+              }
+            />
+          </div>
+        ))}
+        {prompt && (
+          <div className=" fixed top-0 left-0 w-screen h-screen flex justify-center items-center gap-2 bg-neutral-700 bg-opacity-80 ">
+            <div className=" relative px-20 py-5 flex flex-col gap-4 bg-gion-powder-blue rounded-lg ">
+              <div>Name of the Benefit</div>
+              <input
+                className="px-3 py-2 border border-slate-300 rounded"
+                type="text"
+                placeholder="Thandi hawa temperature"
+                value={newBenefit}
+                onChange={(e) => setNewBenefit(e.target.value)}
+              />
+              <div
+                onClick={() => {
+                  benefits?.push({ label: newBenefit, value: "" });
+                  setPrompt(false);
+                }}
+                className=" mx-auto px-8 py-2 bg-gion-teal-3 hover:bg-gion-seafoam-green text-gion-powder-blue rounded-lg cursor-pointer "
+              >
+                Add
+              </div>
+              <div
+                className=" absolute right-2 bottom-0 cursor-pointer "
+                onClick={() => setPrompt(false)}
+              >
+                close
+              </div>
+            </div>
+          </div>
+        )}
+        <div
+          onClick={() => setPrompt(true)}
+          className=" w-full h-[42px] flex items-center justify-center text-neutral-600 border border-gion-teal-3 bg-gion-powder-blue rounded-sm cursor-pointer "
+        >
+          Add{" "}
+        </div>
+      </div>
+      <div onClick={() => saveBenefits()} className=" px-10 py-3 w-fit bg-gion-teal-3 text-gion-powder-blue rounded-md " >Save Benefits</div>
+    </div>
+  );
+}
 
 function UploadProducts(params) {
   const [name, setName] = useState("");
@@ -31,6 +111,8 @@ function UploadProducts(params) {
     water_drain_plug: "",
     auto_fill_valve: "",
     fan_motor: "",
+    ideal_for: "",
+    key_benefits: ""
   });
 
   const handleSubmit = async (e) => {
@@ -43,7 +125,7 @@ function UploadProducts(params) {
       short_description,
       description,
       ...specs,
-      images: imageUrls
+      images: imageUrls,
     };
     console.log("product payload", payload);
 
@@ -277,6 +359,19 @@ function UploadProducts(params) {
               onChange={(e) => updateSpec("fan_motor", e.target.value)}
             />
           </div>
+        </div>
+
+        <KeyBenefits upspec={updateSpec} />
+
+        <div className="flex flex-col gap-2">
+          <label className="font-medium">Ideal For</label>
+          <input
+            className="px-3 py-2 border border-slate-300 rounded"
+            type="text"
+            placeholder="List use cases with comma separation"
+            value={specs.ideal_for}
+            onChange={(e) => updateSpec("ideal_for", e.target.value)}
+          />
         </div>
 
         <button

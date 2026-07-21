@@ -25,6 +25,7 @@ import Gbutton from "./utilcomps/Gbutton";
 
 import { supabase } from "../supabaseClient";
 import CoolerProductsCard from "./utilcomps/CoolerProductsCard";
+import LoadingElement from "./utilcomps/LoadingElement";
 
 function ProductCard(params) {
   return (
@@ -64,9 +65,7 @@ function ProductCard(params) {
 async function fetchProducts(series) {
   let { data: products } = await supabase.from("products").select("*");
   console.log("products", products);
-  return series
-    ? products.filter((p) => p.series === series)
-    : products;
+  return series ? products.filter((p) => p.series === series) : products;
 }
 
 function ProductsPage(params) {
@@ -364,7 +363,7 @@ function ProductsPage(params) {
         )}
       </div>
 
-      {true && (
+      {api_products?.length ? (
         <div
           id="products_content"
           className=" lg:my-4 flex flex-col lg:flex-row gap-2 lg:gap-16 "
@@ -491,11 +490,11 @@ function ProductsPage(params) {
           }
           {/* <CoolProductsCard /> */}
         </div>
-      )}
+      ) : <LoadingElement />}
     </div>
   );
 }
 
 export { fetchProducts };
-export { ProductCard }
+export { ProductCard };
 export default ProductsPage;

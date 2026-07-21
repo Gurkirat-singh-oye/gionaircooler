@@ -9,9 +9,9 @@ function ImageSlider(images) {
       <div className=" w-[500px] h-[420px] border border-gion-teal rounded-lg ">
         <img src={selectedImage} className=" w-full h-full object-contain " />
       </div>
-      <div className=" flex flex-row gap-4 ">
+      <div className=" flex flex-row gap-2 ">
         {images?.images?.map((img) => 
-          <div className=" w-14 h-14 flex items-center border border-gion-teal rounded-lg cursor-pointer overflow-clip " onClick={() => setSelectedImage(img) } >
+          <div className=" w-14 h-14 flex items-center rounded-lg cursor-pointer overflow-clip " onClick={() => setSelectedImage(img) } >
             <img src={img} />
           </div>
         )}
